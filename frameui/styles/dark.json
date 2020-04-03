@@ -1,0 +1,15 @@
+{
+    "color": "#333",
+    "color1": "#6435c9",
+    "textSize": {
+        "xs": 10,
+        "s": 12,
+        "m": 14,
+        "l": 16
+    },
+    "textColor": {
+        "normal": "#333",
+        "success": "#00aa00"
+    },
+    "backgroundColor": {}
+}
