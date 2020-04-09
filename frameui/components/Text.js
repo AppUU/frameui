@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text as RNText } from 'react-native';
-import { getThemeValue } from '../styles/styles.service';
+import { getThemeValue } from '../';
 
-const Text = ({ theme, color }) => (
+const Text = ({ theme, color, text }) => (
     <RNText style={{ color: getThemeValue(color, theme) }}>
-        {'123'}
+        {text}
     </RNText>
 );
 

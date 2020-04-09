@@ -1,4 +1,7 @@
 {
-    "color": "#000",
-    "color1": "#ff3333"
+    "color": "#f0f",
+    "color1": "#ff3333",
+    "fontSize-S": 12,
+    "fontSize-M": 14,
+    "fontSize-L": 16
 }
