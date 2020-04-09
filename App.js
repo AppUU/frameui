@@ -6,71 +6,37 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { StyleSheet, Button, View } from 'react-native';
-import TextBody from './frameui/TextBody';
-import { stylesJson, darkJson } from './frameui';
-import ceshi from './ceshi.json';
+import React, { PureComponent } from 'react';
+import { Navigator } from "react-native-deprecated-custom-components";
+import Router from './src/router';
 
-export default class App extends Component {
+export default class App extends PureComponent {
 
   constructor(props) {
     super(props)
-    this.state = {
-      index: 0,
-      defaultStyle: stylesJson
-    }
   }
 
   render() {
-    const { index, defaultStyle } = this.state
     return (
-      <View style={styles.container}>
-        <View>
-          <TextBody color={'color'} theme={defaultStyle} />
-          <TextBody color={'color1'} theme={defaultStyle} />
-        </View>
-        <View>
-          <TextBody color={'color'} theme={defaultStyle} />
-          <TextBody color={'color1'} theme={defaultStyle} />
-        </View>
-        <Button title={'切换'} onPress={this._onPress} />
-      </View>
+      <Navigator
+        ref='navigator'
+        initialRoute={{ id: 'Main' }}
+        configureScene={this._configureScene}
+        renderScene={this._renderScene.bind(this)}
+        style={{ flex: 1 }} />
     );
   }
 
-  _onPress = () => {
-    const { index, defaultStyle } = this.state
-    if (index == 0) {
-      this.setState({
-        index: 1,
-        defaultStyle: darkJson
-      })
-    } else if (index == 1) {
-      this.setState({
-        index: 0,
-        defaultStyle: ceshi
-      })
-    }
+  _configureScene = route => {
+    if (route.sceneConfig) return route.sceneConfig;
+    return {
+      ...Navigator.SceneConfigs.PushFromRight,
+      gestures: {} //屏蔽右滑
+    };
+  };
+
+  _renderScene(route, navigator) {
+    let Component = Router[route.id].default
+    return <Component {...this.props} {...route.params} navigator={navigator} />;
   }
-
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
