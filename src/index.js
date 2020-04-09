@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, } from 'react-native';
-import { Text } from '../frameui';
+import { Text, Button } from '../frameui';
 
 class Main extends PureComponent {
     constructor(props) {
@@ -15,7 +15,15 @@ class Main extends PureComponent {
         const { theme } = this.props
         return (
             <View>
-                <Text theme={theme} color={'color'} />
+                <Text text={'normal'} theme={theme} size={'S'} />
+                <Text text={'primary'} theme={theme} color={'primary'} size={'L'} />
+                <Text text={'success'} theme={theme} color={'success'} size={'M'} />
+                <Text text={'danger'} theme={theme} color={'danger'} size={'M'} />
+                <Text text={'info'} theme={theme} color={'info'} size={'M'} />
+                <Button theme={theme} bgColor={'primary'} />
+                <Button theme={theme} bgColor={'success'} />
+                <Button theme={theme} bgColor={'danger'} />
+                <Button theme={theme} bgColor={'info'} />
             </View>
         );
     }

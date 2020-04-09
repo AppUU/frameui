@@ -15,10 +15,12 @@ class Button extends PureComponent {
     }
 
     render() {
-        const { theme, color, onPress, disabled } = this.props
+        const { theme, bgColor, color, onPress, disabled } = this.props
         return (
             <TouchableOpacity
-
+                style={{
+                    backgroundColor: getThemeValue(`bgColor-${bgColor}`, theme),
+                }}
                 activeOpacity={.9} disabled={disabled} onPress={onPress}>
                 <RNText style={{ color: getThemeValue(color, theme) }}>
                     {'123'}
