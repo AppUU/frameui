@@ -10,7 +10,7 @@ import Storage from './src/util/storage';
 
 export default class MobxRoot extends Component {
 
-    state = { theme: require('./ceshi.json') }
+    state = { theme: require('./theme.json') }
 
     setTheme = (theme) => {
         this.setState({ theme });
