@@ -1,4 +1,6 @@
 const router = {
-    'Main': require('../')
+    'Main': require('../'),
+    'TextPage': require('../pages/TextPage'),
+
 }
 export default router;

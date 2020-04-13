@@ -6,6 +6,7 @@ exports.darkJson = require('./styles/dark.json')
 import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
 
+import Layout from './components/Layout';
 import Text from './components/Text';
 import Button from './components/Button'
-export { Text, Button, getThemeValue, getRgbaColor, _ANDROID_ }
+export { Layout, Text, Button, getThemeValue, getRgbaColor, _ANDROID_ }

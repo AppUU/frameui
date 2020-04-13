@@ -20,7 +20,7 @@ class Button extends PureComponent {
 
     render() {
         return (
-            <View>
+            <View style={this.props.style}>
                 {this.props.shape == 'filled' && <FilledButton {...this.props} />}
                 {this.props.shape == 'outline' && <OutlineButton {...this.props} />}
                 {this.props.shape == 'ghost' && <GhostButton {...this.props} />}
@@ -37,9 +37,8 @@ const FilledButton = ({ theme, text, size, buttonColor, color, onPress, disabled
     return (
         <TouchableOpacity
             style={[styles.container, {
-                // margin: getThemeValue(`margin-${size}`, theme),
-                marginVertical: 8,
-                marginHorizontal: 16,
+                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
+                marginHorizontal: getThemeValue(`margin-${size}`, theme),
                 paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
                 paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
                 backgroundColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
@@ -48,7 +47,9 @@ const FilledButton = ({ theme, text, size, buttonColor, color, onPress, disabled
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
-            <Text theme={theme} text={text} color={color} size={size} />
+            <View>
+                <Text theme={theme} text={text} textColor={color} textSize={size} />
+            </View>
         </TouchableOpacity>
     )
 }
@@ -58,7 +59,8 @@ const OutlineButton = ({ theme, text, size, buttonColor, color, onPress, disable
     return (
         <TouchableOpacity
             style={[styles.container, {
-                margin: getThemeValue(`margin-${size}`, theme),
+                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
+                marginHorizontal: getThemeValue(`margin-${size}`, theme),
                 paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
                 paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
                 backgroundColor: getRgbaColor(getThemeValue(`buttonColor-${buttonColor}`, theme), 0.2),
@@ -67,7 +69,9 @@ const OutlineButton = ({ theme, text, size, buttonColor, color, onPress, disable
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
-            <Text theme={theme} text={text} color={buttonColor} size={size} />
+            <View>
+                <Text theme={theme} text={text} textColor={buttonColor} textSize={size} />
+            </View>
         </TouchableOpacity>
     )
 }
@@ -76,7 +80,8 @@ const GhostButton = ({ theme, text, size, buttonColor, color, onPress, disabled 
     return (
         <TouchableOpacity
             style={[styles.container, {
-                margin: getThemeValue(`margin-${size}`, theme),
+                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
+                marginHorizontal: getThemeValue(`margin-${size}`, theme),
                 paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
                 paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
                 borderColor: 'transparent',
@@ -84,14 +89,16 @@ const GhostButton = ({ theme, text, size, buttonColor, color, onPress, disabled 
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
-            <Text theme={theme} text={text} color={buttonColor} size={size} />
+            <View>
+                <Text theme={theme} text={text} textColor={buttonColor} textSize={size} />
+            </View>
         </TouchableOpacity>
     )
 }
 
 
 const styles = StyleSheet.create({
-    container: { borderRadius: 2, alignItems: 'center', justifyContent: 'center' }
+    container: { borderRadius: 4, alignItems: 'center', justifyContent: 'center' }
 });
 
 export default Button;
