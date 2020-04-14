@@ -12,11 +12,10 @@ class TextPage extends Component {
         const { theme } = this.props
         return (
             <Layout flex={1} centerVertical>
-                <Text theme={theme} fontSize={'giant'} textColor={'primary'} text={'primary'} />
-                <Text theme={theme} textColor={'success'} text={'primary'} />
-                <Text theme={theme} textColor={'primary'} text={'primary'} />
-                <Text theme={theme} textColor={'primary'} text={'primary'} />
-                <Text theme={theme} textColor={'primary'} text={'primary'} />
+                <Text theme={theme} text={'normal'} />
+                <Text theme={theme} fontSize={'small'} textColor={'success'} text={'primary'} />
+                <Text theme={theme} fontSize={'large'} textColor={'success'} text={'primary'} />
+                <Text theme={theme} fontSize={'giant'} textColor={'success'} text={'primary'} />
             </Layout>
         );
     }

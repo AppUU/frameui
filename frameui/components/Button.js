@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { getThemeValue, getRgbaColor, Text } from '../';
+import { getThemeValue, getRgbaColor, Text, mScaleSize } from '../';
 
 class Button extends PureComponent {
     constructor(props) {
@@ -14,6 +14,7 @@ class Button extends PureComponent {
         color: 'normal',
         size: 'medium',
         buttonColor: 'primary',
+        textColor: 'white',
         disabled: false,
         onPress: () => { }
     }
@@ -30,67 +31,73 @@ class Button extends PureComponent {
 }
 
 /**
- * filled button
+ * 颜色填充型按钮
  * @param {*} param0 
  */
-const FilledButton = ({ theme, text, size, buttonColor, color, onPress, disabled }) => {
+const FilledButton = ({ theme, text, size, buttonColor, textColor, onPress, disabled }) => {
     return (
         <TouchableOpacity
             style={[styles.container, {
-                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
-                marginHorizontal: getThemeValue(`margin-${size}`, theme),
-                paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
-                paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
+                marginVertical: mScaleSize(getThemeValue(`buttonMarginVertical-${size}`, theme)),
+                marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
+                paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
+                paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
                 backgroundColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
                 borderColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
+                minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),
+                minHeight: mScaleSize(getThemeValue(`buttonMinHeight-${size}`, theme)),
                 borderWidth: 1,
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View>
-                <Text theme={theme} text={text} textColor={color} textSize={size} />
+                <Text theme={theme} text={text} textColor={textColor} fontSize={size} />
             </View>
         </TouchableOpacity>
     )
 }
 
 
-const OutlineButton = ({ theme, text, size, buttonColor, color, onPress, disabled }) => {
+const OutlineButton = ({ theme, text, size, buttonColor, onPress, disabled }) => {
     return (
         <TouchableOpacity
             style={[styles.container, {
-                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
-                marginHorizontal: getThemeValue(`margin-${size}`, theme),
-                paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
-                paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
+                marginVertical: mScaleSize(getThemeValue(`buttonMarginVertical-${size}`, theme)),
+                marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
+                paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
+                paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
                 backgroundColor: getRgbaColor(getThemeValue(`buttonColor-${buttonColor}`, theme), 0.2),
                 borderColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
                 borderWidth: 1,
+                minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),
+                minHeight: mScaleSize(getThemeValue(`buttonMinHeight-${size}`, theme)),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View>
-                <Text theme={theme} text={text} textColor={buttonColor} textSize={size} />
+                <Text theme={theme} text={text} textColor={buttonColor} fontSize={size} />
             </View>
         </TouchableOpacity>
     )
 }
 
-const GhostButton = ({ theme, text, size, buttonColor, color, onPress, disabled }) => {
+const GhostButton = ({ theme, text, size, buttonColor, onPress, disabled }) => {
     return (
         <TouchableOpacity
             style={[styles.container, {
-                marginVertical: getThemeValue(`margin-${size}`, theme) / 2,
-                marginHorizontal: getThemeValue(`margin-${size}`, theme),
-                paddingHorizontal: getThemeValue(`paddingHorizontal-${size}`, theme),
-                paddingVertical: getThemeValue(`paddingVertical-${size}`, theme),
+                marginVertical: mScaleSize(getThemeValue(`buttonMarginVertical-${size}`, theme)),
+                marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
+                paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
+                paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
                 borderColor: 'transparent',
                 borderWidth: 1,
+                minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),
+                minHeight: mScaleSize(getThemeValue(`buttonMinHeight-${size}`, theme)),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View>
-                <Text theme={theme} text={text} textColor={buttonColor} textSize={size} />
+                <Text theme={theme} text={text} textColor={buttonColor} fontSize={size} />
             </View>
         </TouchableOpacity>
     )
