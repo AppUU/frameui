@@ -2,7 +2,7 @@ import React from 'react';
 import { Text as RNText } from 'react-native';
 import { _ANDROID_, getThemeValue, mScaleText } from '../';
 
-const Text = ({ theme, textColor = 'normal', fontSize = 'normal', text, lines = 1 }) => (
+const Text = ({ theme, textColor = 'normal', fontSize = 'normal', text, lines = 1, style }) => (
     <RNText
         numberOfLines={lines}
         adjustsFontSizeToFit={true}
@@ -14,7 +14,8 @@ const Text = ({ theme, textColor = 'normal', fontSize = 'normal', text, lines = 
                 textAlignVertical: 'center',
             },
             lines != 1 && { lineHeight: mScaleText(getThemeValue(`fontSize-${size}`, theme) * 1.5) },
-            _ANDROID_ && { includeFontPadding: false, }
+            _ANDROID_ && { includeFontPadding: false, },
+            style
         ]}
     >
         {text}

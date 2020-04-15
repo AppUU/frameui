@@ -10,8 +10,10 @@ import { mScaleSize, mScaleText } from './styles/pixel.service';
 import Layout from './components/Layout';
 import Text from './components/Text';
 import Button from './components/Button'
+import Divider from './components/Divider'
+import Card from './components/Card'
 export {
-    Layout, Text, Button,
+    Layout, Text, Button, Divider, Card,
     getThemeValue, getRgbaColor,
     _ANDROID_,
     mScaleSize, mScaleText

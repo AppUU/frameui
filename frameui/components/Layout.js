@@ -7,15 +7,17 @@ import { getThemeValue } from '..';
  * @param {颜色，例:primary} color 
  * @param {*} flex 
  */
-const Layout = ({ theme, color, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
+const Layout = ({ theme, color = 'normal', justifyContent, alignItems, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
     <View style={[
-        { backgroundColor: '#fff' },
-        theme && color && { backgroundColor: getThemeValue(`backgroundColor-${color}`, theme) },
+        { backgroundColor: getThemeValue(`backgroundColor-${color}`, theme) },
+        // theme && color && { backgroundColor: getThemeValue(`backgroundColor-${color}`, theme) },
         flex && { flex: flex },
         center && styles.center,
         centerVertical && (row ? styles.centerHorizontal : styles.centerVertical),
         centerHorizontal && (row ? styles.centerVertical : styles.centerHorizontal),
         row && styles.row,
+        justifyContent && { justifyContent: justifyContent, },
+        alignItems && { alignItems: alignItems, },
         style
     ]}>
         {children}
