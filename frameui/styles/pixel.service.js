@@ -1,7 +1,6 @@
 import { NativeModules, Dimensions, StatusBar, PixelRatio, Platform } from 'react-native';
 import { _ANDROID_ } from '..';
 const { StatusBarManager } = NativeModules;
-
 // iPhone6 尺寸
 const defaultDevice = {
     width: Platform.OS === 'ios' ? 375 : 360,
@@ -38,19 +37,19 @@ export const mScaleSize = size => {
     return size;
 }
 
-export function StatusBarHeight() {
-
-    let mStatusBarHeight = 0
-    if (_ANDROID_) {
-        mStatusBarHeight = StatusBar.currentHeight
-    } else {
-        StatusBarManager.getHeight(statusBarHeight => {
-            console.log(statusBarHeight);
-
-            mStatusBarHeight = statusBarHeight
+function getIosStatusBarHeight() {
+    return new Promise(resolve => {
+        StatusBarManager.getHeight(height => {
+            resolve(height);
         });
-    }
+    });
+}
 
-    // _ANDROID_
-    return mStatusBarHeight
+//获取状态栏高度
+export async function getStatusBarHeight() {
+    if (_ANDROID_) {
+        return { height: StatusBar.currentHeight };
+    } else {
+        return await getIosStatusBarHeight();
+    }
 }

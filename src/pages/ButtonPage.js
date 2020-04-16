@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
-import { Layout, Button, Divider, Text, Card, CardHeader, Toolbar, StatusBarHeight } from '../../frameui';
-import Modal from '../../frameui/components/Modal';
+import { Modal, Layout, Button, Divider, Text, Card, CardHeader, Toolbar,   } from '../../frameui';
 
 class ButtonPage extends Component {
     constructor(props) {
@@ -11,8 +10,6 @@ class ButtonPage extends Component {
     }
 
     componentDidMount() {
-        console.log(StatusBarHeight());
-
         BackHandler.addEventListener('hardwareBackPress', this.onBackhandler)
     }
 

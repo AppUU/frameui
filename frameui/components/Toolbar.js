@@ -1,16 +1,37 @@
-import React from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
-import { Layout, mScaleSize, _ANDROID_ } from '..';
-// import { getInset } from 'react-native-safe-area-view';
+import React, { PureComponent } from 'react';
+import { StyleSheet } from 'react-native';
+import { Layout, mScaleSize, _ANDROID_, getStatusBarHeight } from '..';
 
-const Toolbar = ({ theme, title }) => (
-    <Layout theme={theme} color={'primary'} style={styles.container}>
+class Toolbar extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            statusBarHeight: 0
+        };
+    }
 
-    </Layout>
-);
+    UNSAFE_componentWillMount() {
+        getStatusBarHeight().then(result => this.setState({ statusBarHeight: result.height }));
+    }
+
+    render() {
+        const { theme } = this.props
+        const { statusBarHeight } = this.state
+        return (
+            <Layout theme={theme} color={'primary'}
+                style={[styles.container, {
+                    height: mScaleSize(40) + statusBarHeight
+
+                }]}>
+
+            </Layout>
+        );
+    }
+}
+
+
 const styles = StyleSheet.create({
     container: {
-        height: mScaleSize(40) 
     }
 });
 export default Toolbar;

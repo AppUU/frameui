@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { View, Modal as RNModal, Animated, Platform, Easing, StyleSheet, Dimensions } from "react-native";
 import RootSiblings from 'react-native-root-siblings';
 import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text, mScaleSize } from "..";
@@ -6,7 +6,7 @@ import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text, mScaleSize 
 const { height } = Dimensions.get('window')
 var isAndroid = Platform.OS == 'android'
 
-export default class Modal extends Component {
+class Modal extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -281,3 +281,5 @@ const styles = StyleSheet.create({
         height: mScaleSize(40)
     }
 })
+
+export default Modal;
