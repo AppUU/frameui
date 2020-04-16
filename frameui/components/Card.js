@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Dimensions, StyleSheet, Platform, } from 'react-native';
+import { View, StyleSheet, Platform, } from 'react-native';
 import PropTypes from 'prop-types';
-import { getThemeValue, mScaleSize, Layout, Text, Divider } from '..';
+import { getThemeValue, mScaleSize } from '..';
 
 const Card = props => {
-    const { theme, color = 'normal', children, elevation, opacity, cornerRadius } = props;
+    const { theme, headerComponent, footerComponent, color = 'normal', children, elevation, opacity, cornerRadius } = props;
 
     const cardStyle = Platform.select({
         ios: () =>
@@ -33,34 +33,12 @@ const Card = props => {
 
     return (
         <View style={[cardStyle.container, props.style]}>
-            <CardHeader {...props} />
-            <Layout theme={theme} color={'transparent'} style={{ marginHorizontal: 12 }} >
-                <Divider theme={theme} />
-            </Layout>
+            {headerComponent && headerComponent}
             {children}
+            {footerComponent && footerComponent}
         </View>
     )
 }
-
-const CardHeader = props => {
-    const { theme } = props
-
-    return (
-        <Layout theme={theme} color={'transparent'} row centerVertical style={styles.cardHeaderContainer}>
-            <Layout theme={theme} color={'transparent'} row centerVertical flex={1}>
-                <Layout theme={theme} color={'transparent'} row alignItems={'flex-end'} >
-                    <Text theme={theme} text={'主标题'} />
-                    <Text theme={theme} text={'次标题'} textColor={'subtitle'} fontSize={'tiny'} style={{ marginLeft: mScaleSize(4) }} />
-                </Layout>
-            </Layout>
-            <Layout theme={theme} color={'transparent'} row centerVertical>
-                <Text theme={theme} text={'次标题'} textColor={'paragraph'} fontSize={'tiny'} style={{ marginLeft: mScaleSize(4) }} />
-                <Text theme={theme} text={'>'} textColor={'paragraph'} fontSize={'tiny'} style={{ marginLeft: mScaleSize(4) }} />
-            </Layout>
-        </Layout>
-    )
-}
-
 
 Card.prototype = {
     elevation: PropTypes.number,
@@ -73,12 +51,5 @@ Card.defaultProps = {
     cornerRadius: 4,
     opacity: 0
 }
-
-const styles = StyleSheet.create({
-    cardHeaderContainer: {
-        marginHorizontal: mScaleSize(16),
-        height: mScaleSize(40)
-    }
-});
 
 export default Card

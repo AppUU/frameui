@@ -1,34 +1,6 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
-
-// 获取屏幕的dp
-let screenW = Dimensions.get('window').width;
-let screenH = Dimensions.get('window').height;
-// let fontScale = PixelRatio.getFontScale();
-let pixelRatio = PixelRatio.get();
-// 高保真的宽度和高度
-const designWidth = Platform.OS === 'ios' ? 750.0 : 720.0;
-const designHeight = Platform.OS === 'ios' ? 1334.0 : 1280.0;
-
-// 根据dp获取屏幕的px
-let screenPxW = PixelRatio.getPixelSizeForLayoutSize(screenW);
-let screenPxH = PixelRatio.getPixelSizeForLayoutSize(screenH);
-
-// /**
-//  * 设置text
-//  * @param size  dp
-//  * @returns {Number} dp
-//  */
-// export function mScaleText(size) {
-//     return size;
-// }
-
-// export function mScaleSize(size) {
-//     console.log(screenPxW, fontScale, pixelRatio);
-
-//     var scaleWidth = size * screenPxW / designWidth;
-//     size = Math.round((scaleWidth / pixelRatio + 0.5));
-//     return size;
-// }
+import { NativeModules, Dimensions, StatusBar, PixelRatio, Platform } from 'react-native';
+import { _ANDROID_ } from '..';
+const { StatusBarManager } = NativeModules;
 
 // iPhone6 尺寸
 const defaultDevice = {
@@ -37,9 +9,7 @@ const defaultDevice = {
 }
 
 // 设备的宽
-const {
-    width: deviceWidth
-} = Dimensions.get('window');
+const { width: deviceWidth } = Dimensions.get('window');
 
 // 字体大小缩放比例(Android下可设置字体大小)
 let fontScale = PixelRatio.getFontScale();
@@ -66,4 +36,21 @@ export const mScaleText = size => {
 export const mScaleSize = size => {
     size = Math.round(size * scale);
     return size;
+}
+
+export function StatusBarHeight() {
+
+    let mStatusBarHeight = 0
+    if (_ANDROID_) {
+        mStatusBarHeight = StatusBar.currentHeight
+    } else {
+        StatusBarManager.getHeight(statusBarHeight => {
+            console.log(statusBarHeight);
+
+            mStatusBarHeight = statusBarHeight
+        });
+    }
+
+    // _ANDROID_
+    return mStatusBarHeight
 }

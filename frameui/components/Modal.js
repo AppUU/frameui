@@ -13,7 +13,8 @@ export default class Modal extends Component {
         this.state = {
             visible: false, //给android式的modal进行使用的
             animationSlide: new Animated.Value(0),
-            animationFade: new Animated.Value(0)
+            animationFade: new Animated.Value(0),
+            backgroundColor: 'transparent'
         };
         //ios也可以指定使用android的实现方式
         if (this.props.useAndroid) {
@@ -22,12 +23,11 @@ export default class Modal extends Component {
     }
 
     static defaultProps = {
-        animationType: 'fade',
+        type: 'slide',
+        type: 'alert',//'popup'
         opacity: 0.4,
         negative: '取消',
         positive: '确认',
-        onNegativePress: () => { },
-        onPositivePress: () => { },
     }
 
     render() {
@@ -36,7 +36,8 @@ export default class Modal extends Component {
     }
 
     renderAndroid = () => {
-        const { theme, opacity } = this.props
+        const { type } = this.props
+        const { backgroundColor } = this.state
         return (
             <RNModal {...this.props}
                 transparent={true}
@@ -48,22 +49,24 @@ export default class Modal extends Component {
                         this.hidden()
                     }
                 }}>
-                <View style={[styles.root, {
-                    backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity)
+                <View style={[type == 'alert' ? styles.alertroot : styles.popuproot, {
+                    backgroundColor: backgroundColor
                 }]}>
-                    {this.renderContent()}
+                    {type == 'alert' && this.renderAlertContent()}
+                    {type == 'popup' && this.renderPopupContent()}
                 </View>
             </RNModal>
         )
     }
 
     renderIos = () => {
-        const { theme, opacity } = this.props
+        const { type } = this.props
+        const { backgroundColor } = this.state
         return (
-            <Animated.View style={[styles.root,
+            <Animated.View style={[type == 'alert' ? styles.alertroot : styles.popuproot,
             {
                 opacity: this.state.animationFade,
-                backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity)
+                backgroundColor: backgroundColor
             },
             {
                 transform: [{
@@ -73,32 +76,58 @@ export default class Modal extends Component {
                     }),
                 }]
             }]}>
-                {this.renderContent()}
+                {type == 'alert' && this.renderAlertContent()}
+                {type == 'popup' && this.renderPopupContent()}
             </Animated.View>
         );
     }
 
 
-    renderContent() {
-        const { theme, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
+    /**alert */
+    renderAlertContent() {
+        const { theme, headerComponent, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
+
         return (
-            <Layout theme={theme} style={styles.container}>
-                <Layout theme={theme} color={'transparent'} center style={styles.modalTitle}>
-                    <Text theme={theme} text={title} fontSize='large' />
-                </Layout>
+            <Layout theme={theme} style={[styles.alertcontainer]}>
+
+                {/* 头部，自定义与默认 */}
+                {
+                    !headerComponent &&
+                    <Layout theme={theme} color={'transparent'} center style={styles.modalTitle}>
+                        <Text theme={theme} text={title} fontSize='large' />
+                    </Layout>
+                }
+                {/* 头部，自定义与默认 */}
+                {headerComponent && headerComponent}
+                {/* 分割线 */}
                 <Divider theme={theme} />
+                {/* 内容 */}
                 {this.props.children}
+                {/* 分割线 */}
                 <Divider theme={theme} />
+                {/* 子标题 */}
                 {
                     subtitle &&
                     <Layout theme={theme} color={'transparent'} center style={{ marginTop: mScaleSize(16) }}>
                         <Text theme={theme} fontSize='small' text={subtitle} />
                     </Layout>
                 }
-                <Layout theme={theme} color={'transparent'} row centerHorizontal style={{ marginVertical: mScaleSize(8) }}>
-                    <Button theme={theme} buttonColor={'subtitle'} shape='outline' text={negative} onPress={onNegativePress} />
-                    <Button theme={theme} text={positive} onPress={onPositivePress} />
+                {/* 按钮 */}
+                <Layout theme={theme} color={'transparent'} row={onNegativePress && onPositivePress} centerHorizontal={onNegativePress && onPositivePress} style={{ marginVertical: mScaleSize(8) }}>
+                    {onNegativePress && <Button theme={theme} buttonColor={'subtitle'} shape='outline' text={negative} onPress={onNegativePress} />}
+                    {onPositivePress && <Button theme={theme} text={positive} onPress={onPositivePress} />}
                 </Layout>
+            </Layout>
+        )
+    }
+
+
+    /**popup */
+    renderPopupContent() {
+        const { theme, headerComponent, type, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
+        return (
+            <Layout theme={theme} style={styles.popupcontainer}>
+
             </Layout>
         )
     }
@@ -112,9 +141,9 @@ export default class Modal extends Component {
             this.setState({ visible: true }, () => callback && callback())
         } else {
             this.RootSiblings = new RootSiblings(this.renderIos(), () => {
-                if (this.props.animationType == 'fade') {
+                if (this.props.type == 'alert') {
                     this.animationFadeIn(callback)
-                } else if (this.props.animationType == 'slide') {
+                } else if (this.props.type == 'popup') {
                     this.animationSlideIn(callback)
                 } else {
                     this.animationNoneIn(callback)
@@ -130,9 +159,9 @@ export default class Modal extends Component {
         if (isAndroid) {
             this.setState({ visible: false }, () => callback && callback())
         } else {
-            if (this.props.animationType == 'fade') {
+            if (this.props.type == 'alert') {
                 this.animationFadeOut(callback)
-            } else if (this.props.animationType == 'slide') {
+            } else if (this.props.type == 'popup') {
                 this.animationSlideOut(callback)
             } else {
                 this.animationNoneOut(callback)
@@ -159,6 +188,8 @@ export default class Modal extends Component {
     }
 
     animationSlideIn = (callback) => {
+        const { theme, opacity } = this.props
+        this.setState({ backgroundColor: 'transparent' })
         this.setState({ visible: true }, () => {
             this.state.animationSlide.setValue(0)
             this.state.animationFade.setValue(1)
@@ -166,7 +197,10 @@ export default class Modal extends Component {
                 easing: Easing.linear(),
                 duration: 300,
                 toValue: 1,
-            }).start(() => callback && callback());
+            }).start(() => {
+                this.setState({ backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity) })
+                callback && callback()
+            });
         })
     }
 
@@ -181,6 +215,8 @@ export default class Modal extends Component {
     }
 
     animationFadeIn = (callback) => {
+        const { theme, opacity } = this.props
+        this.setState({ backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity) })
         this.setState({ visible: true }, () => {
             this.state.animationSlide.setValue(1)
             this.state.animationFade.setValue(0)
@@ -188,7 +224,9 @@ export default class Modal extends Component {
                 easing: Easing.linear(),
                 duration: 300,
                 toValue: 1,
-            }).start(() => callback && callback());
+            }).start(() => {
+                callback && callback()
+            });
         })
     }
 
@@ -211,7 +249,7 @@ export default class Modal extends Component {
 }
 
 const styles = StyleSheet.create({
-    root: {
+    alertroot: {
         position: 'absolute',
         left: 0,
         top: 0,
@@ -220,9 +258,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    container: {
+    popuproot: {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'flex-end',
+        // alignItems: 'flex-end'
+    },
+    alertcontainer: {
         width: '70%',
-        borderRadius: 4
+        borderRadius: 8
+    },
+    popupcontainer: {
+        width: '100%',
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
+        height: '70%'
     },
     modalTitle: {
         height: mScaleSize(40)

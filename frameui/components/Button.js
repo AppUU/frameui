@@ -66,7 +66,7 @@ const OutlineButton = ({ theme, text, size, buttonColor, onPress, disabled }) =>
                 marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
                 paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
                 paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
-                backgroundColor: getRgbaColor(getThemeValue(`buttonColor-${buttonColor}`, theme), 0.2),
+                backgroundColor: getRgbaColor(getThemeValue(`buttonColor-${buttonColor}`, theme), 0.1),
                 borderColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
                 borderWidth: 1,
                 minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),
