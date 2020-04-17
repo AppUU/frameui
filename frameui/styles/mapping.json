@@ -1,0 +1,52 @@
+{
+    "name": "这是所有样式的json",
+    "fontSize-tiny": 10,
+    "fontSize-small": 12,
+    "fontSize-medium": 14,
+    "fontSize-large": 16,
+    "fontSize-giant": 18,
+    "minWidth-small": 48,
+    "minWidth-medium": 80,
+    "minWidth-large": 96,
+    "minHeight-small": 24,
+    "minHeight-medium": 32,
+    "minHeight-large": 40,
+    "button": {
+        "small": {
+            "minWidth": "minWidth-small",
+            "minHeight": "minHeight-small",
+            "fontSize": "fontSize-small",
+            "fontWeight": "400",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "marginHorizontal": 4,
+            "marginVertical": 6,
+            "paddingHorizontal": 12,
+            "paddingVertical": 6
+        },
+        "medium": {
+            "minWidth": "minWidth-medium",
+            "minHeight": "minHeight-medium",
+            "fontSize": "fontSize-medium",
+            "fontWeight": "500",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "marginHorizontal": 12,
+            "marginVertical": 16,
+            "paddingHorizontal": 16,
+            "paddingVertical": 10
+        },
+        "large": {
+            "minWidth": "minWidth-large",
+            "minHeight": "minHeight-large",
+            "fontSize": "fontSize-medium",
+            "fontWeight": "600",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "marginHorizontal": 16,
+            "marginVertical": 16,
+            "paddingHorizontal": 20,
+            "paddingVertical": 12
+        }
+    }
+}

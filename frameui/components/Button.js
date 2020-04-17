@@ -1,57 +1,43 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { getThemeValue, getRgbaColor, Text, mScaleSize } from '../';
+import { getThemeValue, getRgbaColor, Text, mScaleSize, mapping } from '../';
 
-class Button extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
-    static defaultProps = {
-        shape: 'filled',
-        color: 'normal',
-        size: 'medium',
-        buttonColor: 'primary',
-        textColor: 'white',
-        disabled: false,
-        onPress: () => { }
-    }
-
-    render() {
-        return (
-            <View style={this.props.style}>
-                {this.props.shape == 'filled' && <FilledButton {...this.props} />}
-                {this.props.shape == 'outline' && <OutlineButton {...this.props} />}
-                {this.props.shape == 'ghost' && <GhostButton {...this.props} />}
-            </View>
-        );
-    }
-}
+const Button = props => (
+    <View style={props.style}>
+        {props.shape == 'filled' && <FilledButton {...props} />}
+        {props.shape == 'outline' && <OutlineButton {...props} />}
+        {props.shape == 'ghost' && <GhostButton {...props} />}
+    </View>
+);
 
 /**
  * 颜色填充型按钮
  * @param {*} param0 
  */
-const FilledButton = ({ theme, text, size, buttonColor, textColor, onPress, disabled }) => {
+const FilledButton = ({ theme, text, size = 'medium', buttonColor = 'color-button-normal', textColor = 'color-button-text-normal', onPress, disabled }) => {
     return (
         <TouchableOpacity
             style={[styles.container, {
-                marginVertical: mScaleSize(getThemeValue(`buttonMarginVertical-${size}`, theme)),
-                marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
-                paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
-                paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
-                backgroundColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
-                borderColor: getThemeValue(`buttonColor-${buttonColor}`, theme),
-                minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),
-                minHeight: mScaleSize(getThemeValue(`buttonMinHeight-${size}`, theme)),
-                borderWidth: 1,
+                marginVertical: mScaleSize(getThemeValue(`marginVertical`, mapping['button'][size])),
+                marginHorizontal: mScaleSize(getThemeValue(`marginHorizontal`, mapping['button'][size])),
+                paddingHorizontal: mScaleSize(getThemeValue(`paddingHorizontal`, mapping['button'][size])),
+                paddingVertical: mScaleSize(getThemeValue(`paddingVertical`, mapping['button'][size])),
+                backgroundColor: getThemeValue(buttonColor, theme),
+                borderColor: getThemeValue(buttonColor, theme),
+                minWidth: mScaleSize(getThemeValue(getThemeValue(`minWidth`, mapping['button'][size]), mapping)),
+                minHeight: mScaleSize(getThemeValue(getThemeValue(`minHeight`, mapping['button'][size]), mapping)),
+                borderWidth: getThemeValue(`borderWidth`, mapping['button'][size]),
+                borderRadius: getThemeValue(`borderRadius`, mapping['button'][size]),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View>
-                <Text theme={theme} text={text} textColor={textColor} fontSize={size} />
+                <Text
+                    theme={theme} text={text}
+                    textColor={textColor}
+                    fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
+                    fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
+                />
             </View>
         </TouchableOpacity>
     )
@@ -89,6 +75,7 @@ const GhostButton = ({ theme, text, size, buttonColor, onPress, disabled }) => {
                 marginHorizontal: mScaleSize(getThemeValue(`buttonMarginHorizontal-${size}`, theme)),
                 paddingHorizontal: mScaleSize(getThemeValue(`buttonPaddingHorizontal-${size}`, theme)),
                 paddingVertical: mScaleSize(getThemeValue(`buttonPaddingVertical-${size}`, theme)),
+                borderRadius: mScaleSize(getThemeValue(`borderRadius`, theme)),
                 borderColor: 'transparent',
                 borderWidth: 1,
                 minWidth: mScaleSize(getThemeValue(`buttonMinWidth-${size}`, theme)),

@@ -1,8 +1,7 @@
 import { Platform } from 'react-native'
 let _ANDROID_ = Platform.OS === 'android'
 
-exports.stylesJson = require('./styles/styles.json')
-exports.darkJson = require('./styles/dark.json')
+exports.mapping = require('./styles/mapping.json')
 import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
 import { mScaleSize, mScaleText, getStatusBarHeight } from './styles/pixel.service';
