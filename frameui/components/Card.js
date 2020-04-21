@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Platform, } from 'react-native';
 import PropTypes from 'prop-types';
-import { getThemeValue, mScaleSize } from '..';
+import { getThemeValue, mScaleSize, themeColor } from '..';
 
 const Card = props => {
-    const { theme, headerComponent, footerComponent, color = 'normal', children, elevation, opacity, cornerRadius } = props;
+    const { theme = themeColor, children, elevation, opacity, cornerRadius } = props;
 
     const cardStyle = Platform.select({
         ios: () =>
@@ -14,7 +14,7 @@ const Card = props => {
                     shadowOpacity: opacity,
                     shadowOffset: { width: 0, height: elevation },
                     borderRadius: cornerRadius,
-                    backgroundColor: getThemeValue(`backgroundColor-${color}`, theme),
+                    backgroundColor: getThemeValue(`color-card-background`, theme),
                     // width: mScaleSize(Dimensions.get('window').width - 32),
                     marginHorizontal: mScaleSize(16)
                 }
@@ -24,7 +24,7 @@ const Card = props => {
                 container: {
                     elevation: elevation,
                     borderRadius: cornerRadius,
-                    backgroundColor: getThemeValue(`backgroundColor-${color}`, theme),
+                    backgroundColor: getThemeValue(`color-card-background`, theme),
                     // width: mScaleSize(Dimensions.get('window').width - 32),
                     marginHorizontal: mScaleSize(16)
                 }
@@ -33,9 +33,9 @@ const Card = props => {
 
     return (
         <View style={[cardStyle.container, props.style]}>
-            {headerComponent && headerComponent}
+            {/* {headerComponent && headerComponent} */}
             {children}
-            {footerComponent && footerComponent}
+            {/* {footerComponent && footerComponent} */}
         </View>
     )
 }

@@ -33,8 +33,6 @@
     "b12": "#ff6666",
     "transparent": "transparent",
     "color-text-color": "$t1",
-    "color-divider": "#f0f0f0",
-    "color-splitter": "#f8f8f8",
     "button-filled": "填充型按钮-主题颜色",
     "color-button-filled-primary": "$b8",
     "color-button-filled-success": "$b11",
@@ -60,5 +58,10 @@
     "color-button-text-purity-primary": "t7",
     "color-button-border-purity-primary": "$transparent",
     "card": "卡片",
-    "color-card-background": "$b1"
+    "color-card-background": "$b1",
+    "color-cardheader-paragraph": "$paragraph",
+    "divider": "分割线",
+    "color-divider-divider": "#f0f0f0",
+    "color-divider-splitter": "#f8f8f8",
+    "color-divider-primary": "$primary"
 }

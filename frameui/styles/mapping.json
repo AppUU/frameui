@@ -1,52 +1,58 @@
 {
-    "name": "这是所有样式的json",
-    "fontSize-tiny": 10,
-    "fontSize-small": 12,
-    "fontSize-medium": 14,
-    "fontSize-large": 16,
-    "fontSize-giant": 18,
-    "minWidth-small": 48,
-    "minWidth-medium": 80,
-    "minWidth-large": 96,
-    "minHeight-small": 24,
-    "minHeight-medium": 32,
-    "minHeight-large": 40,
+    "name": "这是组件样式的json",
+    "tiny": 10,
+    "small": 12,
+    "medium": 14,
+    "large": 16,
+    "giant": 18,
+    "fontSize-tiny": "$tiny",
+    "fontSize-small": "$small",
+    "fontSize-medium": "$medium",
+    "fontSize-large": "$large",
+    "fontSize-giant": "$giant",
     "button": {
         "small": {
-            "minWidth": "minWidth-small",
-            "minHeight": "minHeight-small",
+            "minWidth": 48,
+            "minHeight": 24,
             "fontSize": "fontSize-small",
             "fontWeight": "400",
             "borderRadius": 4,
             "borderWidth": 1,
             "marginHorizontal": 4,
             "marginVertical": 6,
-            "paddingHorizontal": 12,
-            "paddingVertical": 6
+            "paddingHorizontal": 8,
+            "paddingVertical": 6,
+            "fontMarginHorizontal": 4
         },
         "medium": {
-            "minWidth": "minWidth-medium",
-            "minHeight": "minHeight-medium",
+            "minWidth": 80,
+            "minHeight": 32,
             "fontSize": "fontSize-medium",
             "fontWeight": "500",
             "borderRadius": 4,
             "borderWidth": 1,
             "marginHorizontal": 12,
             "marginVertical": 16,
-            "paddingHorizontal": 16,
-            "paddingVertical": 10
+            "paddingHorizontal": 12,
+            "paddingVertical": 10,
+            "fontMarginHorizontal": 4
         },
         "large": {
-            "minWidth": "minWidth-large",
-            "minHeight": "minHeight-large",
+            "minWidth": 96,
+            "minHeight": 40,
             "fontSize": "fontSize-medium",
             "fontWeight": "600",
             "borderRadius": 4,
             "borderWidth": 1,
             "marginHorizontal": 16,
             "marginVertical": 16,
-            "paddingHorizontal": 20,
-            "paddingVertical": 12
+            "paddingHorizontal": 16,
+            "paddingVertical": 12,
+            "fontMarginHorizontal": 4
         }
+    },
+    "divider": {
+        "divider": 0.5,
+        "splitter": 8
     }
 }

@@ -7,10 +7,11 @@ import { StoreProvider } from './src/util/store';
 import App from './App';
 import { name as appName } from './app.json';
 import Storage from './src/util/storage';
+import { themeColor } from './frameui';
 
 export default class MobxRoot extends Component {
 
-    state = { theme: require('./theme2.json') }
+    state = { theme: themeColor }
 
     setTheme = (theme) => {
         this.setState({ theme });

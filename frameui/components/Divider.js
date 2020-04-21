@@ -1,16 +1,16 @@
 import React from 'react';
 import { View } from 'react-native';
-import { getThemeValue } from '..';
+import { getThemeValue, mapping, themeColor } from '..';
 
 /**
  * 分割线divider
  * 分割条splitter
  * @param {*} param0 
  */
-const Divider = ({ theme, shape = 'divider', style }) => (
+const Divider = ({ theme = themeColor, shape = 'divider', style }) => (
     <View style={[{
-        backgroundColor: getThemeValue(`color-${shape}`, theme),
-        height: getThemeValue(`height-${shape}`, theme)
+        backgroundColor: getThemeValue(`color-divider-${shape}`, theme),
+        height: getThemeValue(`${shape}`, mapping['divider'])
     }, style]}>
     </View>
 );

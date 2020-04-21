@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text as RNText } from 'react-native';
-import { _ANDROID_, getThemeValue, mScaleText, mapping } from '../';
+import { _ANDROID_, getThemeValue, mScaleText, mapping, themeColor } from '../';
 
 const Text = ({
-    theme, adjustsFontSizeToFit = false,
-    textColor = 'color-text-normal', fontSize = 'fontSize-medium', fontWeight,
+    theme = themeColor, adjustsFontSizeToFit = false,
+    textColor = 'color-text-color', fontSize = 'fontSize-medium', fontWeight,
     text, lines = 1, style
 }) => (
         <RNText

@@ -2,6 +2,7 @@ import { Platform } from 'react-native'
 let _ANDROID_ = Platform.OS === 'android'
 
 exports.mapping = require('./styles/mapping.json')
+exports.themeColor = require('./styles/theme.json')
 import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
 import { mScaleSize, mScaleText, getStatusBarHeight } from './styles/pixel.service';
