@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { View, Modal as RNModal, Animated, Platform, Easing, StyleSheet, Dimensions } from "react-native";
 import RootSiblings from 'react-native-root-siblings';
-import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text, mScaleSize } from "..";
+import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text } from "..";
 
 const { height } = Dimensions.get('window')
 var isAndroid = Platform.OS == 'android'
@@ -108,12 +108,12 @@ class Modal extends PureComponent {
                 {/* 子标题 */}
                 {
                     subtitle &&
-                    <Layout theme={theme} color={'transparent'} center style={{ marginTop: mScaleSize(16) }}>
+                    <Layout theme={theme} color={'transparent'} center style={{ marginTop: 16 }}>
                         <Text theme={theme} fontSize='small' text={subtitle} />
                     </Layout>
                 }
                 {/* 按钮 */}
-                <Layout theme={theme} color={'transparent'} row={onNegativePress && onPositivePress} centerHorizontal={onNegativePress && onPositivePress} style={{ marginVertical: mScaleSize(8) }}>
+                <Layout theme={theme} color={'transparent'} row={onNegativePress && onPositivePress} centerHorizontal={onNegativePress && onPositivePress} style={{ marginVertical: 8 }}>
                     {onNegativePress && <Button theme={theme} buttonColor={'subtitle'} shape='outline' text={negative} onPress={onNegativePress} />}
                     {onPositivePress && <Button theme={theme} text={positive} onPress={onPositivePress} />}
                 </Layout>
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
         height: '70%'
     },
     modalTitle: {
-        height: mScaleSize(40)
+        height: 40
     }
 })
 

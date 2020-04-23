@@ -32,6 +32,8 @@
     "b11": "#4bbc4b",
     "b12": "#ff6666",
     "transparent": "transparent",
+    "color-view-background": "$b2",
+    "color-layout-background": "$b1",
     "color-text-color": "$t1",
     "button-filled": "填充型按钮-主题颜色",
     "color-button-filled-primary": "$b8",

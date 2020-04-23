@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Platform, } from 'react-native';
 import PropTypes from 'prop-types';
-import { getThemeValue, mScaleSize, themeColor } from '..';
+import { getThemeValue, themeColor } from '..';
 
 const Card = props => {
     const { theme = themeColor, children, elevation, opacity, cornerRadius } = props;
@@ -15,8 +15,7 @@ const Card = props => {
                     shadowOffset: { width: 0, height: elevation },
                     borderRadius: cornerRadius,
                     backgroundColor: getThemeValue(`color-card-background`, theme),
-                    // width: mScaleSize(Dimensions.get('window').width - 32),
-                    marginHorizontal: mScaleSize(16)
+                    marginHorizontal: 16
                 }
             }),
         android: () =>
@@ -25,8 +24,7 @@ const Card = props => {
                     elevation: elevation,
                     borderRadius: cornerRadius,
                     backgroundColor: getThemeValue(`color-card-background`, theme),
-                    // width: mScaleSize(Dimensions.get('window').width - 32),
-                    marginHorizontal: mScaleSize(16)
+                    marginHorizontal: 16
                 }
             })
     })();

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { View, StatusBar, StyleSheet } from 'react-native';
-import { Layout, mScaleSize, _ANDROID_, getStatusBarHeight, getThemeValue, Text, Divider, Touchable } from '..';
+import { Layout, _ANDROID_, getStatusBarHeight, getThemeValue, Text, Divider, Touchable } from '..';
 import Icon from 'react-native-vector-icons/Feather';
 
-let toolbarHeight = mScaleSize(40)
+let toolbarHeight = 40
 
 class Toolbar extends PureComponent {
     constructor(props) {
@@ -69,8 +69,8 @@ const RightComponent = ({ theme, barStyle, rightIcon, onRightPress }) => {
 
 const styles = StyleSheet.create({
     container: {},
-    leftComponent: { paddingHorizontal: mScaleSize(6), height: toolbarHeight, position: 'absolute', left: 0, alignItems: 'center', justifyContent: 'center', },
-    rightComponent: { paddingHorizontal: mScaleSize(6), height: toolbarHeight, position: 'absolute', right: 0, alignItems: 'center', justifyContent: 'center', },
-    titleComponent: { marginHorizontal: mScaleSize(48), flex: 1, alignItems: 'center', justifyContent: 'center', }
+    leftComponent: { paddingHorizontal: 6, height: toolbarHeight, position: 'absolute', left: 0, alignItems: 'center', justifyContent: 'center', },
+    rightComponent: { paddingHorizontal: 6, height: toolbarHeight, position: 'absolute', right: 0, alignItems: 'center', justifyContent: 'center', },
+    titleComponent: { marginHorizontal: 48, flex: 1, alignItems: 'center', justifyContent: 'center', }
 });
 export default Toolbar;

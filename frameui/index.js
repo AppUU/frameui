@@ -7,6 +7,7 @@ import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
 import { mScaleSize, mScaleText, getStatusBarHeight } from './styles/pixel.service';
 
+import View from './components/View';
 import Touchable from './components/Touchable';
 import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
@@ -19,7 +20,7 @@ import Modal from './components/Modal'
 
 
 export {
-    Touchable, Layout, Toolbar,
+    View, Touchable, Layout, Toolbar,
     Text, Button,
     Divider,
     Card, CardHeader,

@@ -2,12 +2,12 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { getThemeValue, themeColor } from '..';
 /**
- * 
+ * 布局
  * @param {主题-json格式} theme 
  * @param {颜色，例:primary} color 
  * @param {*} flex 
  */
-const Layout = ({ theme = themeColor, color = 'b1', justifyContent, alignItems, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
+const Layout = ({ theme = themeColor, color = 'color-layout-background', justifyContent, alignItems, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
     <View style={[
         { backgroundColor: getThemeValue(`${color}`, theme) },
         // theme && color && { backgroundColor: getThemeValue(`backgroundColor-${color}`, theme) },

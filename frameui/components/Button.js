@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { getThemeValue, Text, mScaleSize, mapping, themeColor } from '../';
+import { getThemeValue, Text, mapping, themeColor } from '../';
 
 const Button = props => (
     <View style={props.style}>
         {props.shape == 'filled' && <FilledButton {...props} />}
         {props.shape == 'outline' && <OutlineButton {...props} />}
-        {props.shape == 'purity' && <GhostButton {...props} />}
+        {props.shape == 'purity' && <PurityButton {...props} />}
     </View>
 );
 
@@ -18,16 +18,16 @@ const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = '
     return (
         <TouchableOpacity
             style={[{
-                marginVertical: mScaleSize(getThemeValue(`marginVertical`, mapping['button'][size])),
-                marginHorizontal: mScaleSize(getThemeValue(`marginHorizontal`, mapping['button'][size])),
-                minWidth: mScaleSize(getThemeValue(`minWidth`, mapping['button'][size])),
-                minHeight: mScaleSize(getThemeValue(`minHeight`, mapping['button'][size])),
+                marginVertical: getThemeValue(`marginVertical`, mapping['button'][size]),
+                marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
+                minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
+                minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
-                paddingHorizontal: mScaleSize(getThemeValue(`paddingHorizontal`, mapping['button'][size])),
-                paddingVertical: mScaleSize(getThemeValue(`paddingVertical`, mapping['button'][size])),
+                paddingHorizontal: getThemeValue(`paddingHorizontal`, mapping['button'][size]),
+                paddingVertical: getThemeValue(`paddingVertical`, mapping['button'][size]),
                 backgroundColor: getThemeValue(`color-button-${shape}-${color}`, theme),
                 borderColor: getThemeValue(`color-button-border-${shape}-${color}`, theme),
                 borderRadius: getThemeValue(`borderRadius`, mapping['button'][size]),
@@ -40,7 +40,7 @@ const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = '
                         textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
-                        style={{ marginHorizontal: mScaleSize(getThemeValue(`fontMarginHorizontal`, mapping['button'][size])) }}
+                        style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}
                     />
                 }
                 {iconRight && iconRight}
@@ -58,16 +58,16 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
     return (
         <TouchableOpacity
             style={[{
-                marginVertical: mScaleSize(getThemeValue(`marginVertical`, mapping['button'][size])),
-                marginHorizontal: mScaleSize(getThemeValue(`marginHorizontal`, mapping['button'][size])),
-                minWidth: mScaleSize(getThemeValue(`minWidth`, mapping['button'][size])),
-                minHeight: mScaleSize(getThemeValue(`minHeight`, mapping['button'][size])),
+                marginVertical: getThemeValue(`marginVertical`, mapping['button'][size]),
+                marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
+                minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
+                minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
-                paddingHorizontal: mScaleSize(getThemeValue(`paddingHorizontal`, mapping['button'][size])) - getThemeValue(`borderWidth`, mapping['button'][size]),
-                paddingVertical: mScaleSize(getThemeValue(`paddingVertical`, mapping['button'][size])) - getThemeValue(`borderWidth`, mapping['button'][size]),
+                paddingHorizontal: getThemeValue(`paddingHorizontal`, mapping['button'][size]) - getThemeValue(`borderWidth`, mapping['button'][size]),
+                paddingVertical: getThemeValue(`paddingVertical`, mapping['button'][size]) - getThemeValue(`borderWidth`, mapping['button'][size]),
                 backgroundColor: getThemeValue(`color-button-${shape}-${color}`, theme),
                 borderColor: getThemeValue(`color-button-border-${shape}-${color}`, theme),
                 borderWidth: getThemeValue(`borderWidth`, mapping['button'][size]),
@@ -81,7 +81,7 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
                         textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
-                        style={{ marginHorizontal: mScaleSize(getThemeValue(`fontMarginHorizontal`, mapping['button'][size])) }}
+                        style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}
                     />
                 }
                 {iconRight && iconRight}
@@ -95,20 +95,20 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
  * 文字型按钮
  * @param {*} param0 
  */
-const GhostButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'purity', onPress, disabled }) => {
+const PurityButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'purity', onPress, disabled }) => {
     return (
         <TouchableOpacity
             style={[{
-                marginVertical: mScaleSize(getThemeValue(`marginVertical`, mapping['button'][size])),
-                marginHorizontal: mScaleSize(getThemeValue(`marginHorizontal`, mapping['button'][size])),
-                minWidth: mScaleSize(getThemeValue(`minWidth`, mapping['button'][size])),
-                minHeight: mScaleSize(getThemeValue(`minHeight`, mapping['button'][size])),
+                marginVertical: getThemeValue(`marginVertical`, mapping['button'][size]),
+                marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
+                minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
+                minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
                 opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
-                paddingHorizontal: mScaleSize(getThemeValue(`paddingHorizontal`, mapping['button'][size])),
-                paddingVertical: mScaleSize(getThemeValue(`paddingVertical`, mapping['button'][size])),
+                paddingHorizontal: getThemeValue(`paddingHorizontal`, mapping['button'][size]),
+                paddingVertical: getThemeValue(`paddingVertical`, mapping['button'][size]),
                 borderRadius: getThemeValue(`borderRadius`, mapping['button'][size]),
             }]}>
                 {iconLeft && iconLeft}
@@ -119,7 +119,7 @@ const GhostButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color
                         textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
-                        style={{ marginHorizontal: mScaleSize(getThemeValue(`fontMarginHorizontal`, mapping['button'][size])) }}
+                        style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}
                     />
                 }
                 {iconRight && iconRight}
