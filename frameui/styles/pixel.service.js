@@ -3,8 +3,8 @@ import { _ANDROID_ } from '..';
 const { StatusBarManager } = NativeModules;
 // iPhone6 尺寸
 const defaultDevice = {
-    width: Platform.OS === 'ios' ? 375 : 360,
-    height: Platform.OS === 'ios' ? 667 : 640
+    width: _ANDROID_ ? 360 : 375,
+    height: _ANDROID_ ? 640 : 667
 }
 
 // 设备的宽
