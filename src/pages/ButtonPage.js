@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text as RNText, BackHandler } from 'react-native';
-import { Layout, Button, mapping, Divider, CardHeader, Card } from '../../frameui';
+import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item } from '../../frameui';
 import Icon from 'react-native-vector-icons/Feather';
 
 class ButtonPage extends Component {
@@ -17,20 +17,27 @@ class ButtonPage extends Component {
     render() {
         const { theme } = this.props
         return (
-            <Layout theme={theme} flex={1} color={'b2'}>
-                <Layout theme={theme} row>
+            <View theme={theme}>
+                <Toolbar theme={theme} title={'标题'} subtitle={'副标题'} />
+                <Layout theme={theme} row style={{ margin: 16 }}>
                     <Button theme={theme} shape='filled' size={'small'} title={'按钮'} />
                     <Button theme={theme} color={'success'} shape='filled' size={'small'} title={'按钮'} />
                     <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
                 </Layout>
                 <Divider />
                 <Card>
-                    <CardHeader />
-
+                    <CardHeader title={'卡片标题'} subtitle={'卡片副标题'} onPress={() => { }} />
+                    <Layout theme={theme} row color={'transparent'}>
+                        <Button theme={theme} shape='filled' size={'small'} title={'按钮'} />
+                        <Button theme={theme} color={'success'} shape='filled' size={'small'} title={'按钮'} />
+                        <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
+                    </Layout>
                 </Card>
-                <Button theme={theme} color={'dark'} shape='outline' size={'large'} title={'这是个按钮'} />
-                <Button theme={theme} disabled shape='purity' size={'large'} title={'这是个按钮'} />
-            </Layout>
+                <Item />
+                <Button theme={theme} shape='outline' size={'large'} title={'这是个按钮'} />
+                <Button theme={theme} shape='filled' size={'large'} title={'按钮'} />
+                <Button theme={theme} shape='purity' size={'large'} title={'这是个按钮'} />
+            </View>
         );
     }
 

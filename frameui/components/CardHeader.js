@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Layout, Text, Divider, getThemeValue, Touchable, themeColor } from '..';
-import Icon from 'react-native-vector-icons/Feather';
+import { Layout, Text, Icon, Divider, getThemeValue, Touchable, themeColor } from '..';
 
 const CardHeader = props => {
     const { theme = themeColor, onPress, title = '', subtitle = '', paragraph = '' } = props
     return (
         <Touchable onPress={onPress}>
             <Layout theme={theme} color={'transparent'} row centerVertical style={styles.cardHeaderContainer}>
-                <Divider shape='primary' style={{ width: 2, height: 24, marginRight: 4 }} />
+                <Divider shape='primary' style={{ width: 4, height: 20, marginRight: 4, borderRadius: 2 }} />
                 <Layout theme={theme} color={'transparent'} row centerVertical flex={1}>
                     <Layout theme={theme} color={'transparent'} row alignItems={'flex-end'} >
                         <Text theme={theme} text={title} />

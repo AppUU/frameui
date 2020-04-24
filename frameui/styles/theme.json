@@ -32,7 +32,7 @@
     "b11": "#4bbc4b",
     "b12": "#ff6666",
     "transparent": "transparent",
-    "color-view-background": "$b2",
+    "color-view-background": "$b3",
     "color-layout-background": "$b1",
     "color-text-color": "$t1",
     "button-filled": "填充型按钮-主题颜色",
@@ -65,5 +65,14 @@
     "divider": "分割线",
     "color-divider-divider": "#f0f0f0",
     "color-divider-splitter": "#f8f8f8",
-    "color-divider-primary": "$primary"
+    "color-divider-primary": "$primary",
+    "toolbar": "工具栏",
+    "color-toolbar-light": "$b8",
+    "color-toolbar-title-light": "t6",
+    "color-toolbar-subtitle-light": "t6",
+    "color-toolbar-icon-light": "$t6",
+    "color-toolbar-dark": "$b1",
+    "color-toolbar-title-dark": "t1",
+    "color-toolbar-subtitle-dark": "t2",
+    "color-toolbar-icon-dark": "$t1"
 }

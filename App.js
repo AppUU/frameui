@@ -20,7 +20,7 @@ export default class App extends PureComponent {
     return (
       <Navigator
         ref='navigator'
-        initialRoute={{ id: 'DimensPage' }}
+        initialRoute={{ id: 'ButtonPage' }}
         configureScene={this._configureScene}
         renderScene={this._renderScene.bind(this)}
         style={{ flex: 1 }} />

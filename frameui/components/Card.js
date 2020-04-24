@@ -15,7 +15,7 @@ const Card = props => {
                     shadowOffset: { width: 0, height: elevation },
                     borderRadius: cornerRadius,
                     backgroundColor: getThemeValue(`color-card-background`, theme),
-                    marginHorizontal: 16
+                    marginHorizontal: 16, marginVertical: 8
                 }
             }),
         android: () =>

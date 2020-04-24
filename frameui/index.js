@@ -13,15 +13,17 @@ import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
 import Text from './components/Text';
 import Button from './components/Button'
+import Icon from './components/Icon'
 import Divider from './components/Divider'
 import Card from './components/Card'
 import CardHeader from './components/CardHeader'
 import Modal from './components/Modal'
+import Item from './components/Item'
 
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button,
+    Text, Button, Icon, Item,
     Divider,
     Card, CardHeader,
     Modal,

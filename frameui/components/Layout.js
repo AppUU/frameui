@@ -7,9 +7,9 @@ import { getThemeValue, themeColor } from '..';
  * @param {颜色，例:primary} color 
  * @param {*} flex 
  */
-const Layout = ({ theme = themeColor, color = 'color-layout-background', justifyContent, alignItems, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
+const Layout = ({ theme = themeColor, color, justifyContent, alignItems, flex, center, centerVertical, centerHorizontal, row, children, style }) => (
     <View style={[
-        { backgroundColor: getThemeValue(`${color}`, theme) },
+        { backgroundColor: color ? color : getThemeValue(`color-layout-background`, theme) },
         // theme && color && { backgroundColor: getThemeValue(`backgroundColor-${color}`, theme) },
         flex && { flex: flex },
         center && styles.center,
