@@ -19,11 +19,12 @@ import Card from './components/Card'
 import CardHeader from './components/CardHeader'
 import Modal from './components/Modal'
 import Item from './components/Item'
+import Label from './components/Label'
 
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button, Icon, Item,
+    Text, Button, Icon, Item, Label,
     Divider,
     Card, CardHeader,
     Modal,

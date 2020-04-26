@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Image as RNImage } from 'react-native';
+import { View, StyleSheet, Image as RNImage } from 'react-native';
 import IconFeather from 'react-native-vector-icons/Feather';
 
 const Icon = props => (
-    <View style={props.style}>
+    <View style={[props.style, styles.container]}>
         {props.source && <Image {...props} />}
         {props.name && <Feather {...props} />}
     </View>
@@ -22,4 +22,7 @@ const Feather = props => {
     )
 }
 
+const styles = StyleSheet.create({
+    container: { alignItems: 'center', justifyContent: 'center' }
+});
 export default Icon;

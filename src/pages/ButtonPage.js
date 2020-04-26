@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text as RNText, BackHandler } from 'react-native';
-import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item } from '../../frameui';
+import { View as RNView, BackHandler } from 'react-native';
+import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item, Label } from '../../frameui';
 import Icon from 'react-native-vector-icons/Feather';
 
 class ButtonPage extends Component {
@@ -33,7 +33,18 @@ class ButtonPage extends Component {
                         <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
                     </Layout>
                 </Card>
-                <Item />
+                <Item firstItem />
+                <Item labelComponent={
+                    <RNView style={{ flexDirection: 'row' }}>
+                        <Label />
+                        <Label status={'success'} />
+                    </RNView>}
+                />
+                <Item labelComponent={<Label status={'success'} />} />
+                <Item labelComponent={<Label />} rightComponent={<Label />} />
+                <Item rightComponent={<Label />} />
+                <Item lastItem />
+
                 <Button theme={theme} shape='outline' size={'large'} title={'这是个按钮'} />
                 <Button theme={theme} shape='filled' size={'large'} title={'按钮'} />
                 <Button theme={theme} shape='purity' size={'large'} title={'这是个按钮'} />

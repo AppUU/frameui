@@ -56,8 +56,20 @@
         "marginHorizontal": 16,
         "iconSize": 24,
         "iconMarginRight": 4,
-        "titleFontSize": 14,
-        "titleFontWeight": "500"
+        "titleFontSize": "fontSize-medium",
+        "subtitleFontSize": "fontSize-small",
+        "titleFontWeight": "400"
+    },
+    "label": {
+        "minWidth": 24,
+        "height": 14,
+        "borderRadius": 18,
+        "borderWidth": 0.5,
+        "fontSize": "fontSize-tiny",
+        "fontWeight": "300",
+        "paddingHorizontal": 4,
+        "marginHorizontal": 2,
+        "paddingVertical": 0
     },
     "divider": {
         "divider": 0.5,

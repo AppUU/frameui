@@ -74,5 +74,12 @@
     "color-toolbar-dark": "$b1",
     "color-toolbar-title-dark": "t1",
     "color-toolbar-subtitle-dark": "t2",
-    "color-toolbar-icon-dark": "$t1"
+    "color-toolbar-icon-dark": "$t1",
+    "item": "列表项",
+    "color-arrow-right": "$b6",
+    "labelview": "标签",
+    "color-label-border-primary": "$b8",
+    "color-label-border-success": "$success",
+    "color-label-text-primary": "$t7",
+    "color-label-text-success": "$success"
 }

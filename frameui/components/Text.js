@@ -14,16 +14,28 @@ const Text = ({
                 {
                     fontSize: mScaleText(getThemeValue(fontSize, mapping)),
                     fontWeight: fontWeight,
-                    color: getThemeValue(textColor, theme),
-                    textAlignVertical: 'center',
+                    color: isReferenceKey(textColor) ? textColor : getThemeValue(textColor, theme),
+                    // textAlign: 'center',
+                    // backgroundColor: 'red',
                 },
                 lines != 1 && { lineHeight: mScaleText(getThemeValue(fontSize, mapping) * 1.5) },
-                _ANDROID_ && { includeFontPadding: false, },
+                lines == 1 && { lineHeight: mScaleText(getThemeValue(fontSize, mapping) * 1.2) },
+                _ANDROID_ && { textAlignVertical: 'center', includeFontPadding: false, },
                 style
             ]}
         >
             {text}
         </RNText >
     );
+
+/**
+ * 判断传入的是否为颜色
+ * @param {*} value 
+ */
+function isReferenceKey(value) {
+    return `${value}`.startsWith('#') ||
+        `${value}`.startsWith('rgb') ||
+        `${value}`.startsWith('rgba');
+}
 
 export default Text;
