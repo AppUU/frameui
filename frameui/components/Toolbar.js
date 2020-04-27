@@ -54,7 +54,7 @@ const LeftComponent = props => {
 const TitleComponent = props => {
     return (
         <View style={styles.titleComponent}>
-            <Text theme={props.theme} textColor={getThemeValue(`color-toolbar-title-${props.barStyle}`, props.theme)} fontSize={'large'} text={props.title} />
+            <Text theme={props.theme} textColor={getThemeValue(`color-toolbar-title-${props.barStyle}`, props.theme)} fontSize={'large'} fontWeight={'500'} text={props.title} />
             {props.subtitle && <Text theme={props.theme} textColor={getThemeValue(`color-toolbar-subtitle-${props.barStyle}`, props.theme)} fontSize={'small'} text={props.subtitle} style={{ marginTop: 4 }} />}
         </View>
     )

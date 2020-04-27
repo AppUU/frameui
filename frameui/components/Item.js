@@ -25,6 +25,7 @@ const Item = ({ theme = themeColor, size = 'large', title, subtitle, source, lab
                 />}
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', }} >
                 <Text theme={theme} text={title}
+                    textColor={getThemeValue('color-item-title', theme)}
                     fontWeight={getThemeValue('titleFontWeight', mapping['item'][size])}
                     fontSize={getThemeValue('titleFontSize', mapping['item'][size])}
                 />
@@ -33,9 +34,11 @@ const Item = ({ theme = themeColor, size = 'large', title, subtitle, source, lab
                 </View>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', height: '100%' }} >
-                {rightComponent && rightComponent}
+                <View style={{ marginHorizontal: 4, flexDirection: 'row' }}>
+                    {rightComponent && rightComponent}
+                </View>
                 <Text theme={theme} text={subtitle}
-                    textColor={getThemeValue('color-item-subtitle', mapping['item'][size])}
+                    textColor={getThemeValue('color-item-subtitle', theme)}
                     fontSize={getThemeValue('subtitleFontSize', mapping['item'][size])} />
                 {onPress && <Icon size={16} name={'chevron-right'} color={getThemeValue('color-item-arrowright', theme)} />}
             </View>

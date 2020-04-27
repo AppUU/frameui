@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { themeColor, getThemeValue, Text, mapping } from '..';
 
-const Label = ({ theme = themeColor, status = 'primary' }) => (
+const Label = ({ theme = themeColor, status = 'primary', text }) => (
     <View style={[{
         alignItems: 'center', justifyContent: 'center',
         minWidth: getThemeValue('minWidth', mapping['label']),
@@ -17,7 +17,7 @@ const Label = ({ theme = themeColor, status = 'primary' }) => (
         <Text
             theme={theme}
             textColor={getThemeValue(`color-label-text-${status}`, theme)}
-            text={'标签'}
+            text={text}
             fontSize={getThemeValue('fontSize', mapping['label'])}
             fontWeight={getThemeValue('fontWeight', mapping['label'])}
         />

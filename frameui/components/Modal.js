@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { View, Modal as RNModal, Animated, Platform, Easing, StyleSheet, Dimensions } from "react-native";
 import RootSiblings from 'react-native-root-siblings';
-import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text } from "..";
+import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text, themeColor } from "..";
 
 const { height } = Dimensions.get('window')
 var isAndroid = Platform.OS == 'android'
@@ -23,7 +23,7 @@ class Modal extends PureComponent {
     }
 
     static defaultProps = {
-        type: 'slide',
+        // type: 'slide',
         type: 'alert',//'popup'
         opacity: 0.4,
         negative: '取消',
@@ -85,7 +85,7 @@ class Modal extends PureComponent {
 
     /**alert */
     renderAlertContent() {
-        const { theme, headerComponent, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
+        const { theme = themeColor, headerComponent, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
 
         return (
             <Layout theme={theme} style={[styles.alertcontainer]}>
@@ -124,7 +124,7 @@ class Modal extends PureComponent {
 
     /**popup */
     renderPopupContent() {
-        const { theme, headerComponent, type, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
+        const { theme = themeColor, headerComponent, type, title, subtitle, negative, positive, onNegativePress, onPositivePress } = this.props
         return (
             <Layout theme={theme} style={styles.popupcontainer}>
 

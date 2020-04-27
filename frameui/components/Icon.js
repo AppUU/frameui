@@ -3,7 +3,7 @@ import { View, StyleSheet, Image as RNImage } from 'react-native';
 import IconFeather from 'react-native-vector-icons/Feather';
 
 const Icon = props => (
-    <View style={[props.style, styles.container]}>
+    <View style={[styles.container, { width: props.size, height: props.size }, props.style]}>
         {props.source && <Image {...props} />}
         {props.name && <Feather {...props} />}
     </View>

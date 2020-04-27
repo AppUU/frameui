@@ -76,6 +76,7 @@
     "color-toolbar-subtitle-dark": "t2",
     "color-toolbar-icon-dark": "$t1",
     "item": "列表项",
+    "color-item-title": "$t1",
     "color-item-subtitle": "$t3",
     "color-item-arrowright": "$b6",
     "labelview": "标签",

@@ -4,6 +4,7 @@ import { getThemeValue, Text, mapping, themeColor } from '../';
 
 const Button = props => (
     <View style={props.style}>
+        {!props.shape && <FilledButton {...props} />}
         {props.shape == 'filled' && <FilledButton {...props} />}
         {props.shape == 'outline' && <OutlineButton {...props} />}
         {props.shape == 'purity' && <PurityButton {...props} />}

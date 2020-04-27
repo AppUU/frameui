@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Toolbar, Touchable, Text } from '../../frameui';
 
 class TouchablePage extends Component {
   constructor(props) {
@@ -9,9 +9,14 @@ class TouchablePage extends Component {
   }
 
   render() {
+    const { title, navigator } = this.props
     return (
       <View>
-        <Text> TouchablePage </Text>
+        <Toolbar title={title} onPress={() => navigator.pop()} />
+
+        <Touchable onPress={() => alert('touchable')}>
+          <Text text={'touchable'} />
+        </Touchable>
       </View>
     );
   }

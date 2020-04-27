@@ -10,14 +10,14 @@ class Main extends PureComponent {
                 { title: 'View-Layout', component: 'ViewPage' },
                 { title: 'Text', component: 'TextPage' },
                 { title: 'Button', component: 'ButtonPage' },
-                { title: 'Touchable', component: '' },
-                { title: 'Icon', component: '' },
-                { title: 'Divider', component: '' },
-                { title: 'Label', component: '' },
-                { title: 'Toolbar', component: '' },
-                { title: 'List-Item', component: '' },
-                { title: 'Modal', component: '' },
-                { title: 'Card-CardHeader', component: '' },
+                { title: 'Touchable', component: 'TouchablePage' },
+                { title: 'Icon', component: 'IconPage' },
+                { title: 'Divider', component: 'DividerPage' },
+                { title: 'Label', component: 'LabelPage' },
+                { title: 'Toolbar', component: 'ToolbarPage' },
+                { title: 'List-Item', component: 'ListItemPage' },
+                { title: 'Modal', component: 'ModalPage' },
+                { title: 'Card-CardHeader', component: 'CardPage' },
             ]
         };
     }

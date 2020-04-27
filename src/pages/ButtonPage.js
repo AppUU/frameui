@@ -21,10 +21,14 @@ class ButtonPage extends Component {
                 <Toolbar title={title} onPress={() => navigator.pop()} />
                 <Layout theme={theme} row style={{ margin: 16 }}>
                     <Button theme={theme} shape='filled' title={'按钮'} />
+                    <Button theme={theme} shape='outline' title={'按钮'} />
+                    <Button theme={theme} shape='purity' title={'按钮'} />
+                </Layout>
+                <Layout theme={theme} row style={{ margin: 16 }}>
+                    <Button theme={theme} shape='filled' size={'small'} title={'按钮'} />
                     <Button theme={theme} color={'success'} shape='filled' size={'small'} title={'按钮'} />
                     <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
                 </Layout>
-
                 <Button theme={theme} shape='outline' size={'large'} title={'outline'} />
                 <Button theme={theme} shape='filled' size={'large'} title={'filled'} />
                 <Button theme={theme} shape='purity' size={'large'} title={'purity'} />
