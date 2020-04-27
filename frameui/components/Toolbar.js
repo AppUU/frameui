@@ -17,12 +17,11 @@ class Toolbar extends PureComponent {
     }
 
     static defaultProps = {
-        theme: themeColor,
         barStyle: 'light',
     }
 
     render() {
-        const { theme, barStyle, title, subtitle } = this.props
+        const { theme = themeColor, barStyle } = this.props
         const { statusBarHeight } = this.state
         return (
             <View>
@@ -33,9 +32,9 @@ class Toolbar extends PureComponent {
                         paddingTop: statusBarHeight,
                     }]}>
                     <Layout theme={theme} flex={1} color={'transparent'} row centerVertical>
-                        <LeftComponent theme={theme} barStyle={barStyle} />
-                        <TitleComponent theme={theme} title={title} subtitle={subtitle} barStyle={barStyle} />
-                        <RightComponent theme={theme} barStyle={barStyle} />
+                        <LeftComponent theme={theme} {...this.props} />
+                        <TitleComponent theme={theme} {...this.props} />
+                        <RightComponent theme={theme} {...this.props} />
                     </Layout>
                 </Layout>
                 <Divider theme={theme} />
@@ -44,25 +43,27 @@ class Toolbar extends PureComponent {
     }
 }
 
-const LeftComponent = ({ theme, barStyle, onLeftPress }) => {
+const LeftComponent = props => {
+    if (!props.onPress) return null
     return (
-        <Touchable onPress={onLeftPress} style={[styles.leftComponent, { display: onLeftPress ? 'flex' : 'none' }]}>
-            <Icon name={'chevron-left'} color={getThemeValue(`color-toolbar-icon-${barStyle}`, theme)} size={28} />
+        <Touchable onPress={props.onPress} style={[styles.leftComponent]}>
+            <Icon name={'chevron-left'} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
         </Touchable>
     )
 }
-const TitleComponent = ({ theme, barStyle, title, subtitle }) => {
+const TitleComponent = props => {
     return (
         <View style={styles.titleComponent}>
-            <Text theme={theme} textColor={getThemeValue(`color-toolbar-title-${barStyle}`, theme)} fontSize={'large'} text={title} />
-            {subtitle && <Text theme={theme} textColor={getThemeValue(`color-toolbar-subtitle-${barStyle}`, theme)} fontSize={'small'} text={subtitle} style={{ marginTop: 4 }} />}
+            <Text theme={props.theme} textColor={getThemeValue(`color-toolbar-title-${props.barStyle}`, props.theme)} fontSize={'large'} text={props.title} />
+            {props.subtitle && <Text theme={props.theme} textColor={getThemeValue(`color-toolbar-subtitle-${props.barStyle}`, props.theme)} fontSize={'small'} text={props.subtitle} style={{ marginTop: 4 }} />}
         </View>
     )
 }
-const RightComponent = ({ theme, barStyle, rightIcon, onRightPress }) => {
+const RightComponent = props => {
+    if (!props.onRightPress) return null
     return (
-        <Touchable onPress={onRightPress} style={[styles.rightComponent, { display: onRightPress ? 'flex' : 'none' }]}>
-            <Icon name={'chevron-left'} color={getThemeValue(`color-toolbar-icon-${barStyle}`, theme)} size={28} />
+        <Touchable onPress={props.onRightPress} style={[styles.rightComponent]}>
+            <Icon source={props.rightSource} name={props.rightIcon} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
         </Touchable>
     )
 }

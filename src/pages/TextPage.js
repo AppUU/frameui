@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Text } from '../../frameui';
+import { View, Layout, Text, Toolbar } from '../../frameui';
 
 class TextPage extends Component {
     constructor(props) {
@@ -9,14 +9,16 @@ class TextPage extends Component {
     }
 
     render() {
-        const { theme } = this.props
+        const { theme, title, navigator } = this.props
         return (
-            <Layout theme={theme} flex={1} centerVertical>
+            <View>
+                <Toolbar title={title} onPress={() => navigator.pop()} />
                 <Text theme={theme} text={'normal'} />
-                <Text theme={theme} fontSize={'small'} textColor={'success'} text={'primary'} />
-                <Text theme={theme} fontSize={'large'} textColor={'success'} text={'primary'} />
-                <Text theme={theme} fontSize={'giant'} textColor={'success'} text={'primary'} />
-            </Layout>
+                <Text theme={theme} fontSize={'small'} textColor={'primary'} text={'primary-small'} />
+                <Text theme={theme} fontSize={'large'} textColor={'success'} text={'success-large'} />
+                <Text theme={theme} fontSize={'giant'} textColor={'normal'} text={'normal-giant'} />
+            </View>
+
         );
     }
 }

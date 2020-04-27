@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View as RNView, BackHandler } from 'react-native';
-import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item, Label } from '../../frameui';
+import { ScrollView, View as RNView, BackHandler } from 'react-native';
+import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item, Label, List } from '../../frameui';
 import Icon from 'react-native-vector-icons/Feather';
 
 class ButtonPage extends Component {
@@ -15,39 +15,22 @@ class ButtonPage extends Component {
     }
 
     render() {
-        const { theme } = this.props
+        const { theme, title, navigator } = this.props
         return (
-            <View theme={theme}>
-                <Toolbar theme={theme} title={'标题'} subtitle={'副标题'} />
+            <View>
+                <Toolbar title={title} onPress={() => navigator.pop()} />
                 <Layout theme={theme} row style={{ margin: 16 }}>
-                    <Button theme={theme} shape='filled' size={'small'} title={'按钮'} />
+                    <Button theme={theme} shape='filled' title={'按钮'} />
                     <Button theme={theme} color={'success'} shape='filled' size={'small'} title={'按钮'} />
                     <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
                 </Layout>
-                <Divider />
-                <Card>
-                    <CardHeader title={'卡片标题'} subtitle={'卡片副标题'} onPress={() => { }} />
-                    <Layout theme={theme} row color={'transparent'}>
-                        <Button theme={theme} shape='filled' size={'small'} title={'按钮'} />
-                        <Button theme={theme} color={'success'} shape='filled' size={'small'} title={'按钮'} />
-                        <Button theme={theme} color={'dark'} shape='filled' size={'small'} title={'按钮'} />
-                    </Layout>
-                </Card>
-                <Item firstItem />
-                <Item labelComponent={
-                    <RNView style={{ flexDirection: 'row' }}>
-                        <Label />
-                        <Label status={'success'} />
-                    </RNView>}
-                />
-                <Item labelComponent={<Label status={'success'} />} />
-                <Item labelComponent={<Label />} rightComponent={<Label />} />
-                <Item rightComponent={<Label />} />
-                <Item lastItem />
 
-                <Button theme={theme} shape='outline' size={'large'} title={'这是个按钮'} />
-                <Button theme={theme} shape='filled' size={'large'} title={'按钮'} />
-                <Button theme={theme} shape='purity' size={'large'} title={'这是个按钮'} />
+                <Button theme={theme} shape='outline' size={'large'} title={'outline'} />
+                <Button theme={theme} shape='filled' size={'large'} title={'filled'} />
+                <Button theme={theme} shape='purity' size={'large'} title={'purity'} />
+                <Button theme={theme} disabled shape='outline' size={'large'} title={'outline'} />
+                <Button theme={theme} disabled shape='filled' size={'large'} title={'filled'} />
+                <Button theme={theme} disabled shape='purity' size={'large'} title={'purity'} />
             </View>
         );
     }

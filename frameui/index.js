@@ -12,6 +12,7 @@ import Touchable from './components/Touchable';
 import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
 import Text from './components/Text';
+import List from './components/List';
 import Button from './components/Button'
 import Icon from './components/Icon'
 import Divider from './components/Divider'
@@ -24,7 +25,7 @@ import Label from './components/Label'
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button, Icon, Item, Label,
+    Text, Button, Icon, Item, Label, List,
     Divider,
     Card, CardHeader,
     Modal,

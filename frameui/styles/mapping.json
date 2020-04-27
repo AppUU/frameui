@@ -52,13 +52,28 @@
         }
     },
     "item": {
-        "height": 40,
-        "marginHorizontal": 16,
-        "iconSize": 24,
-        "iconMarginRight": 4,
-        "titleFontSize": "fontSize-medium",
-        "subtitleFontSize": "fontSize-small",
-        "titleFontWeight": "400"
+        "medium": {
+            "height": 40,
+            "marginHorizontal": 12,
+            "iconSize": 24,
+            "iconMarginRight": 4,
+            "titleFontSize": "fontSize-medium",
+            "subtitleFontSize": "fontSize-small",
+            "titleFontWeight": "400",
+            "firstItemMarginTop": 4,
+            "lastItemMarginBottom": 4
+        },
+        "large": {
+            "height": 44,
+            "marginHorizontal": 16,
+            "iconSize": 24,
+            "iconMarginRight": 4,
+            "titleFontSize": "fontSize-medium",
+            "subtitleFontSize": "fontSize-small",
+            "titleFontWeight": "400",
+            "firstItemMarginTop": 4,
+            "lastItemMarginBottom": 4
+        }
     },
     "label": {
         "minWidth": 24,
