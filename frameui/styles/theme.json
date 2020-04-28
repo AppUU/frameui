@@ -83,5 +83,8 @@
     "color-label-border-primary": "$b8",
     "color-label-border-success": "$success",
     "color-label-text-primary": "$t7",
-    "color-label-text-success": "$success"
+    "color-label-text-success": "$success",
+    "avatar": "头像",
+    "color-avatar": "$b4",
+    "color-avatar-border": "$b4"
 }

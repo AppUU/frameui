@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import { View, Modal as RNModal, Animated, Platform, Easing, StyleSheet, Dimensions } from "react-native";
+import PropTypes from 'prop-types';
 import RootSiblings from 'react-native-root-siblings';
-import { Layout, Divider, Button, getThemeValue, getRgbaColor, Text, themeColor } from "..";
+import { Layout, Divider, Button, getRgbaColor, Text, themeColor } from "..";
 
 const { height } = Dimensions.get('window')
 var isAndroid = Platform.OS == 'android'
@@ -14,12 +15,19 @@ class Modal extends PureComponent {
             visible: false, //给android式的modal进行使用的
             animationSlide: new Animated.Value(0),
             animationFade: new Animated.Value(0),
-            backgroundColor: 'transparent'
+            backgroundColor: 'rgba(0,0,0,.3)'
         };
         //ios也可以指定使用android的实现方式
         if (this.props.useAndroid) {
             isAndroid = true
         }
+    }
+
+    static propTypes = {
+        type: PropTypes.string,//'popup'
+        opacity: PropTypes.number,
+        negative: PropTypes.string,
+        positive: PropTypes.string,
     }
 
     static defaultProps = {
@@ -114,8 +122,8 @@ class Modal extends PureComponent {
                 }
                 {/* 按钮 */}
                 <Layout theme={theme} color={'transparent'} row={onNegativePress && onPositivePress} centerHorizontal={onNegativePress && onPositivePress} style={{ marginVertical: 8 }}>
-                    {onNegativePress && <Button theme={theme} buttonColor={'subtitle'} shape='outline' text={negative} onPress={onNegativePress} />}
-                    {onPositivePress && <Button theme={theme} text={positive} onPress={onPositivePress} />}
+                    {onNegativePress && <Button theme={theme} title={negative} color={'dark'} shape='outline' onPress={onNegativePress} />}
+                    {onPositivePress && <Button theme={theme} title={positive} onPress={onPositivePress} />}
                 </Layout>
             </Layout>
         )
@@ -188,8 +196,6 @@ class Modal extends PureComponent {
     }
 
     animationSlideIn = (callback) => {
-        const { theme, opacity } = this.props
-        this.setState({ backgroundColor: 'transparent' })
         this.setState({ visible: true }, () => {
             this.state.animationSlide.setValue(0)
             this.state.animationFade.setValue(1)
@@ -198,7 +204,6 @@ class Modal extends PureComponent {
                 duration: 300,
                 toValue: 1,
             }).start(() => {
-                this.setState({ backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity) })
                 callback && callback()
             });
         })
@@ -215,8 +220,6 @@ class Modal extends PureComponent {
     }
 
     animationFadeIn = (callback) => {
-        const { theme, opacity } = this.props
-        this.setState({ backgroundColor: getRgbaColor(getThemeValue(`backgroundColor-black`, theme), opacity) })
         this.setState({ visible: true }, () => {
             this.state.animationSlide.setValue(1)
             this.state.animationFade.setValue(0)

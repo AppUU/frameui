@@ -51,6 +51,32 @@
             "fontMarginHorizontal": 4
         }
     },
+    "avatar": {
+        "small": {
+            "width": 24,
+            "height": 24,
+            "borderRadius-round": 12,
+            "borderRadius-square": 4,
+            "borderWidth": 0.5,
+            "borderColor": ""
+        },
+        "medium": {
+            "width": 36,
+            "height": 36,
+            "borderRadius-round": 18,
+            "borderRadius-square": 4,
+            "borderWidth": 0.5,
+            "borderColor": ""
+        },
+        "large": {
+            "width": 48,
+            "height": 48,
+            "borderRadius-round": 24,
+            "borderRadius-square": 4,
+            "borderWidth": 0.5,
+            "borderColor": ""
+        }
+    },
     "item": {
         "medium": {
             "height": 40,
@@ -85,6 +111,10 @@
         "paddingHorizontal": 4,
         "marginHorizontal": 2,
         "paddingVertical": 0
+    },
+    "tooltip": {
+        "miniWidth": 100,
+        "miniHeight": 40
     },
     "divider": {
         "divider": 0.5,

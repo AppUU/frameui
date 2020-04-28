@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 
+//stickyHeaderIndices{[0]}置顶
 const List = ({ children }) => (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
             {children}
         </View>

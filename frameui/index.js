@@ -21,11 +21,13 @@ import CardHeader from './components/CardHeader'
 import Modal from './components/Modal'
 import Item from './components/Item'
 import Label from './components/Label'
+import Avatar from './components/Avatar'
+import Tooltip from './components/Tooltip'
 
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button, Icon, Item, Label, List,
+    Text, Button, Icon, Item, Label, List, Avatar, Tooltip,
     Divider,
     Card, CardHeader,
     Modal,

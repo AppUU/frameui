@@ -23,7 +23,7 @@ const scale = deviceWidth / defaultDevice.width;
  * @returns {number}
  */
 export const mScaleText = size => {
-    size = Math.round(size * scale * fontScale);
+    // size = Math.round(size * scale * fontScale);
     return size;
 }
 

@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import { ScrollView, View as RNView, BackHandler } from 'react-native';
-import { View, Layout, Button, mapping, Divider, CardHeader, Card, Toolbar, Item, Label, List } from '../../frameui';
-import Icon from 'react-native-vector-icons/Feather';
+import { View, Layout, Button, Toolbar } from '../../frameui';
 
 class ButtonPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
         };
-    }
-
-    componentDidMount() {
-        BackHandler.addEventListener('hardwareBackPress', this.onBackhandler)
     }
 
     render() {
@@ -38,41 +32,6 @@ class ButtonPage extends Component {
             </View>
         );
     }
-
-    openModal = () => {
-        this.refs.modal.show()
-    }
-
-    hideModal = () => {
-        this.refs.modal.hidden()
-    }
-
-    onBackhandler = () => {
-        if (this.refs.modal.isShow()) {
-            this.refs.modal.hidden()
-            return true
-        }
-        return false
-    }
-    componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this.onBackhandler)
-    }
-}
-
-const IconLeft = () => {
-    return (
-        <Icon name='x' size={18} color={'white'} />
-    )
-}
-
-
-const ModalHeader = ({ theme }) => {
-    return (
-        <Layout theme={theme} color={'transparent'} row centerHorizontal>
-            <Button theme={theme} buttonColor={'subtitle'} shape='outline' text={'取消'} onPress={() => alert('normal')} />
-            <Button theme={theme} text={'确认'} onPress={() => alert('normal')} />
-        </Layout>
-    )
 }
 
 export default ButtonPage;

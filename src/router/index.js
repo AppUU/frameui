@@ -11,6 +11,8 @@ const router = {
     'ListItemPage': require('../pages/ListItemPage'),
     'ModalPage': require('../pages/ModalPage'),
     'CardPage': require('../pages/CardPage'),
+    'AvatarPage': require('../pages/AvatarPage'),
+    'TooltipPage': require('../pages/TooltipPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

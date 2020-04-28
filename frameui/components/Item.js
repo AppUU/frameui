@@ -8,6 +8,7 @@ const Item = ({ theme = themeColor, size = 'large', title, subtitle, source, lab
         {firstItem && <Divider theme={theme} />}
         <Touchable
             onPress={onPress}
+            // disabled={!onPress}
             style={[{
                 flexDirection: 'row',
                 alignItems: 'center',

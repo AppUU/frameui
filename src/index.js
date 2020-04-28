@@ -18,6 +18,8 @@ class Main extends PureComponent {
                 { title: 'List-Item', component: 'ListItemPage' },
                 { title: 'Modal', component: 'ModalPage' },
                 { title: 'Card-CardHeader', component: 'CardPage' },
+                { title: 'Avatar', component: 'AvatarPage' },
+                { title: 'Tooltip', component: 'TooltipPage' },
             ]
         };
     }
