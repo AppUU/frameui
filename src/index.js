@@ -20,6 +20,7 @@ class Main extends PureComponent {
                 { title: 'Card-CardHeader', component: 'CardPage' },
                 { title: 'Avatar', component: 'AvatarPage' },
                 { title: 'Tooltip', component: 'TooltipPage' },
+                { title: 'Toast', component: 'ToastPage' },
             ]
         };
     }

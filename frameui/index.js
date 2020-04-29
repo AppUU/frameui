@@ -23,11 +23,12 @@ import Item from './components/Item'
 import Label from './components/Label'
 import Avatar from './components/Avatar'
 import Tooltip from './components/Tooltip'
+import Toast from './components/Toast'
 
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button, Icon, Item, Label, List, Avatar, Tooltip,
+    Text, Button, Icon, Item, Label, List, Avatar, Tooltip, Toast,
     Divider,
     Card, CardHeader,
     Modal,

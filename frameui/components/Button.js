@@ -14,8 +14,9 @@ const Button = props => (
 /**
  * 颜色填充型按钮
  * @param {*} param0 
+ * @param {按钮禁用状态下是否维持原主题} isLight 
  */
-const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'filled', onPress, disabled }) => {
+const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'filled', onPress, disabled, isLight = false }) => {
     return (
         <TouchableOpacity
             style={[{
@@ -23,14 +24,14 @@ const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = '
                 marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
                 minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
                 minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
-                opacity: disabled ? 0.6 : 1
+                // opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
                 paddingHorizontal: getThemeValue(`paddingHorizontal`, mapping['button'][size]),
                 paddingVertical: getThemeValue(`paddingVertical`, mapping['button'][size]),
-                backgroundColor: getThemeValue(`color-button-${shape}-${color}`, theme),
-                borderColor: getThemeValue(`color-button-border-${shape}-${color}`, theme),
+                backgroundColor: getThemeValue(`color-button-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme),
+                borderColor: getThemeValue(`color-button-border-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme),
                 borderRadius: getThemeValue(`borderRadius`, mapping['button'][size]),
             }]}>
                 {iconLeft && iconLeft}
@@ -38,7 +39,7 @@ const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = '
                     title && <Text
                         theme={theme}
                         text={title}
-                        textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
+                        textColor={getThemeValue(`color-button-text-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
                         style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}
@@ -55,7 +56,7 @@ const FilledButton = ({ theme = themeColor, title, iconLeft, iconRight, size = '
  * 边框型按钮
  * @param {*} param0 
  */
-const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'outline', onPress, disabled }) => {
+const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'outline', onPress, disabled, isLight = false }) => {
     return (
         <TouchableOpacity
             style={[{
@@ -63,14 +64,14 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
                 marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
                 minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
                 minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
-                opacity: disabled ? 0.6 : 1
+                // opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
                 paddingHorizontal: getThemeValue(`paddingHorizontal`, mapping['button'][size]) - getThemeValue(`borderWidth`, mapping['button'][size]),
                 paddingVertical: getThemeValue(`paddingVertical`, mapping['button'][size]) - getThemeValue(`borderWidth`, mapping['button'][size]),
-                backgroundColor: getThemeValue(`color-button-${shape}-${color}`, theme),
-                borderColor: getThemeValue(`color-button-border-${shape}-${color}`, theme),
+                backgroundColor: getThemeValue(`color-button-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme),
+                borderColor: getThemeValue(`color-button-border-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme),
                 borderWidth: getThemeValue(`borderWidth`, mapping['button'][size]),
                 borderRadius: getThemeValue(`borderRadius`, mapping['button'][size]),
             }]}>
@@ -79,7 +80,7 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
                     title && <Text
                         theme={theme}
                         text={title}
-                        textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
+                        textColor={getThemeValue(`color-button-text-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
                         style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}
@@ -96,7 +97,7 @@ const OutlineButton = ({ theme, title, iconLeft, iconRight, size = 'medium', col
  * 文字型按钮
  * @param {*} param0 
  */
-const PurityButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'purity', onPress, disabled }) => {
+const PurityButton = ({ theme, title, iconLeft, iconRight, size = 'medium', color = 'primary', shape = 'purity', onPress, disabled, isLight = false }) => {
     return (
         <TouchableOpacity
             style={[{
@@ -104,7 +105,7 @@ const PurityButton = ({ theme, title, iconLeft, iconRight, size = 'medium', colo
                 marginHorizontal: getThemeValue(`marginHorizontal`, mapping['button'][size]),
                 minWidth: getThemeValue(`minWidth`, mapping['button'][size]),
                 minHeight: getThemeValue(`minHeight`, mapping['button'][size]),
-                opacity: disabled ? 0.6 : 1
+                // opacity: disabled ? 0.6 : 1
             }]}
             activeOpacity={.9} disabled={disabled} onPress={onPress}>
             <View style={[styles.container, {
@@ -117,7 +118,7 @@ const PurityButton = ({ theme, title, iconLeft, iconRight, size = 'medium', colo
                     title && <Text
                         theme={theme}
                         text={title}
-                        textColor={getThemeValue(`color-button-text-${shape}-${color}`, theme)}
+                        textColor={getThemeValue(`color-button-text-${shape}-${color}${disabled && !isLight ? "-disabled" : ""}`, theme)}
                         fontSize={getThemeValue(`fontSize`, mapping['button'][size])}
                         fontWeight={getThemeValue(`fontWeight`, mapping['button'][size])}
                         style={{ marginHorizontal: getThemeValue(`fontMarginHorizontal`, mapping['button'][size]) }}

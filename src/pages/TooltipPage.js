@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Toolbar, Tooltip, Layout, Button, List, Item } from '../../frameui';
+import { View as RNView, Text as RNText } from 'react-native';
+import { View, Toolbar, Tooltip, Text, Layout, Button, List, Item } from '../../frameui';
 
 class TooltipPage extends Component {
     constructor(props) {
@@ -13,41 +14,40 @@ class TooltipPage extends Component {
         return (
             <View>
                 <Toolbar title={title} onPress={() => navigator.pop()} />
-                <Tooltip ref={'tooltip'} width={'100%'} popover={
-                    <Layout style={{ width: '100%' }}>
-                        <List>
-                            <Item title={'选项1'} onPress={this.onPress} />
-                            <Item title={'选项2'} onPress={this.onPress} />
-                            <Item title={'选项3'} onPress={this.onPress} />
-                            <Item title={'选项3'} onPress={this.onPress} />
-                            <Item title={'选项3'} onPress={this.onPress} />
-                            <Item title={'选项3'} onPress={this.onPress} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                            <Item title={'选项3'} />
-                        </List>
-                    </Layout>
-                }>
-                    <Button title={'点击'} disabled />
-                </Tooltip>
+                <Tooltip
+                    ref='tooltip'
+                    middle={true}
+                    buttonComponent={
+                        <Button title={'点击'} disabled isLight />
+                    }
+                    tooltipOrientation={'horizontal'}
+                    // tooltipContainerStyle={{ width: '100%' }}
+                    items={[
+                        {
+                            label: '点赞',
+                            onPress: () => { }
+                        },
+                        {
+                            label: "取消",
+                            onPress: () => { }
+                        }
+                    ]}
+                // itemComponent={
+                //     <List>
+                //         <Item title={'选项1'} onPress={this.onPress} />
+                //         <Item title={'选项2'} onPress={this.onPress} />
+                //         <Item title={'选项3'} onPress={this.onPress} />
+                //         <Item title={'选项3'} onPress={this.onPress} />
+                //         <Item title={'选项3'} onPress={this.onPress} />
+                //         <Item title={'选项3'} onPress={this.onPress} />
+                //     </List>
+                // }
+                />
             </View>
         );
     }
     onPress = () => {
-        this.refs.tooltip.toggleTooltip()
-        alert('123')
+        this.refs.tooltip.hideModal()
     }
 }
 

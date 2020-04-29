@@ -13,6 +13,7 @@ const router = {
     'CardPage': require('../pages/CardPage'),
     'AvatarPage': require('../pages/AvatarPage'),
     'TooltipPage': require('../pages/TooltipPage'),
+    'ToastPage': require('../pages/ToastPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

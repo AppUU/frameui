@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Layout, Text, Toolbar, Button, List, Item } from '../../frameui';
-import Tooltip from '../../frameui/components/Tooltip';
+import { View, Text, Toolbar } from '../../frameui';
 
 class TextPage extends Component {
     constructor(props) {
