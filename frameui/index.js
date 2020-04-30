@@ -1,5 +1,6 @@
-import { Platform } from 'react-native'
+import { Platform, Dimensions } from 'react-native'
 let _ANDROID_ = Platform.OS === 'android'
+const { width, height } = Dimensions.get('window')
 
 exports.mapping = require('./styles/mapping.json')
 exports.themeColor = require('./styles/theme.json')
@@ -33,6 +34,6 @@ export {
     Card, CardHeader,
     Modal,
     getThemeValue, getRgbaColor,
-    _ANDROID_,
+    _ANDROID_, width, height,
     mScaleSize, mScaleText, getStatusBarHeight
 }

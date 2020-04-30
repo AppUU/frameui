@@ -21,6 +21,7 @@ class Main extends PureComponent {
                 { title: 'Avatar', component: 'AvatarPage' },
                 { title: 'Tooltip', component: 'TooltipPage' },
                 { title: 'Toast', component: 'ToastPage' },
+                { title: 'ARTPage', component: 'ARTPage' },
             ]
         };
     }
