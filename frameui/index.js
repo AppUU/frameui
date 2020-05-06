@@ -4,6 +4,7 @@ const { width, height } = Dimensions.get('window')
 
 exports.mapping = require('./styles/mapping.json')
 exports.themeColor = require('./styles/theme.json')
+// import moduleName from 'module';
 import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
 import { mScaleSize, mScaleText, getStatusBarHeight } from './styles/pixel.service';
@@ -13,6 +14,7 @@ import Touchable from './components/Touchable';
 import Layout from './components/Layout';
 import Toolbar from './components/Toolbar';
 import Text from './components/Text';
+import TextInput from './components/TextInput';
 import List from './components/List';
 import Button from './components/Button'
 import Icon from './components/Icon'
@@ -29,7 +31,7 @@ import Toast from './components/Toast'
 
 export {
     View, Touchable, Layout, Toolbar,
-    Text, Button, Icon, Item, Label, List, Avatar, Tooltip, Toast,
+    Text, TextInput, Button, Icon, Item, Label, List, Avatar, Tooltip, Toast,
     Divider,
     Card, CardHeader,
     Modal,

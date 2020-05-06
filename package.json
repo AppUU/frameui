@@ -16,6 +16,7 @@
     "react-native-image-progress": "^1.1.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-root-siblings": "^4.0.6",
+    "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.0.0"
   },
@@ -23,8 +24,10 @@
     "@babel/core": "^7.9.0",
     "@babel/runtime": "^7.9.2",
     "babel-jest": "^25.2.4",
+    "babel-plugin-inline-import": "^3.0.0",
     "jest": "^25.2.4",
     "metro-react-native-babel-preset": "^0.59.0",
+    "react-native-svg-transformer": "^0.14.3",
     "react-test-renderer": "16.8.3"
   },
   "jest": {

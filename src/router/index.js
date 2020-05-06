@@ -15,6 +15,7 @@ const router = {
     'TooltipPage': require('../pages/TooltipPage'),
     'ToastPage': require('../pages/ToastPage'),
     'ARTPage': require('../pages/ARTPage'),
+    'SVGPage': require('../pages/SVGPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

@@ -101,6 +101,15 @@
             "lastItemMarginBottom": 4
         }
     },
+    "textinput": {
+        "medium": {
+            "height": 48,
+            "borderRadius-round": 18,
+            "borderRadius-square": 4,
+            "borderWidth": 0.5,
+            "borderColor": ""
+        }
+    },
     "label": {
         "minWidth": 24,
         "height": 14,

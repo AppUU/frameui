@@ -14,18 +14,6 @@ class ToastPage extends Component {
         return (
             <View>
                 <Toolbar title={title} onPress={() => navigator.pop()} />
-                <RNView style={{
-                    backgroundColor: 'red',
-                    height: 100,
-                    borderBottomEndRadius: 16,
-                    borderBottomRightRadius: 16,
-                    borderEndColor: 'transparent',
-                    borderBottomStartRadius: 16,
-                    borderBottomLeftRadius: 16,
-
-                }}>
-
-                </RNView>
                 <Button title={'show toast'} onPress={() => {
                     Toast.show('toast')
                 }} />
