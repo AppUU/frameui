@@ -16,7 +16,7 @@ const CardHeader = props => {
                 </Layout>
                 <Layout theme={theme} color={'transparent'} row centerVertical>
                     <Text theme={theme} text={paragraph} textColor={'paragraph'} fontSize={'tiny'} style={{ marginLeft: 16 }} />
-                    {onPress && <Icon name={'chevron-right'} size={16} color={getThemeValue(`color-cardheader-paragraph`, theme)} />}
+                    {onPress && <Icon source={{ name: 'chevron-right' }} size={16} color={getThemeValue(`color-cardheader-paragraph`, theme)} />}
                 </Layout>
             </Layout>
             <Layout theme={theme} color={'transparent'} style={{ marginHorizontal: 12 }} >

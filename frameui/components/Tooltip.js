@@ -10,11 +10,12 @@ const {
     TouchableOpacity,
     StyleSheet,
     Dimensions,
+    StatusBar,
     Text,
     Easing
 } = ReactNative;
 
-const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 class PopoverTooltip extends React.Component {
 
@@ -158,7 +159,7 @@ class PopoverTooltip extends React.Component {
                                         let tooltip_container_width = ev.nativeEvent.layout.width, tooltip_container_height = ev.nativeEvent.layout.height;
                                         if (this.state.will_popup && tooltip_container_width > 0 && tooltip_container_height > 0) {
                                             this._component_wrapper.measure((x, y, width, height, pageX, pageY) => {
-                                                let tooltip_container_x_final = pageX + tooltip_container_width + (width - tooltip_container_width) / 2 > window.width ? window.width - tooltip_container_width : pageX + (width - tooltip_container_width) / leftMargin;
+                                                let tooltip_container_x_final = pageX + tooltip_container_width + (width - tooltip_container_width) / 2 > screen.width ? screen.width - tooltip_container_width : pageX + (width - tooltip_container_width) / leftMargin;
                                                 let tooltip_container_y_final = pageY - tooltip_container_height;
                                                 let tooltip_triangle_down = true;
                                                 if (pageY - tooltip_container_height - 20 < 0) {

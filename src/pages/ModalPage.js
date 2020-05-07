@@ -18,7 +18,7 @@ class ModalPage extends Component {
                 </Layout>
 
                 <Modal title={'alert'} subtitle={'提示在这'} ref={'alert'} onPositivePress={() => { }} onNegativePress={() => this.refs.alert.hidden()} >
-                    <Layout center style={{ margin: 12 }}>
+                    <Layout center style={{ margin: 12 }} color={'transparent'}>
                         <Text text={'我是这个弹窗的内容'} />
                         <Text text={'我是这个弹窗的内容'} />
                         <Text text={'我是这个弹窗的内容'} />

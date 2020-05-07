@@ -20,7 +20,7 @@ const Item = ({ theme = themeColor, size = 'large', title, subtitle, source, lab
             }]}>
             {source &&
                 <Icon
-                    source={source}
+                    source={{ source }}
                     size={getThemeValue('iconSize', mapping['item'][size])}
                     style={{ marginRight: getThemeValue('iconMarginRight', mapping['item'][size]) }}
                 />}
@@ -41,7 +41,10 @@ const Item = ({ theme = themeColor, size = 'large', title, subtitle, source, lab
                 <Text theme={theme} text={subtitle}
                     textColor={getThemeValue('color-item-subtitle', theme)}
                     fontSize={getThemeValue('subtitleFontSize', mapping['item'][size])} />
-                {onPress && <Icon size={16} name={'chevron-right'} color={getThemeValue('color-item-arrowright', theme)} />}
+                {onPress && <Icon
+                    size={16}
+                    source={{ name: 'chevron-right' }}
+                    color={getThemeValue('color-item-arrowright', theme)} />}
             </View>
         </Touchable>
         {lastItem && <Divider theme={theme} />}

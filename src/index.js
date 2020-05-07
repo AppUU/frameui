@@ -9,6 +9,7 @@ class Main extends PureComponent {
             data: [
                 { title: 'View-Layout', component: 'ViewPage' },
                 { title: 'Text', component: 'TextPage' },
+                { title: 'TextInput', component: 'TextInputPage' },
                 { title: 'Button', component: 'ButtonPage' },
                 { title: 'Touchable', component: 'TouchablePage' },
                 { title: 'Icon', component: 'IconPage' },

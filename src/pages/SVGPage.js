@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Toolbar } from '../../frameui';
 import Svg, { SvgXml } from 'react-native-svg';
-import tzgg from '../svg/tzgg.svg';
+import tzggSvg from '../svg/tzgg.svg';
 
 class SVGPage extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class SVGPage extends Component {
     return (
       <View>
         <Toolbar title={title} onPress={() => navigator.pop()} />
-        <SvgXml width={60} height={18} xml={tzgg} />
+        <SvgXml width={60} height={18} xml={tzggSvg} />
       </View>
     );
   }

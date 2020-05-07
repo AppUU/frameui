@@ -103,11 +103,13 @@
     },
     "textinput": {
         "medium": {
-            "height": 48,
-            "borderRadius-round": 18,
-            "borderRadius-square": 4,
-            "borderWidth": 0.5,
-            "borderColor": ""
+            "height": 40,
+            "paddingHorizontal": 12,
+            "leftIconSize": 24,
+            "rightIconSize": 24,
+            "leftComponentMarginRight": 4,
+            "rightComponentMarginLeft": 4,
+            "borderWidth": 0.5
         }
     },
     "label": {

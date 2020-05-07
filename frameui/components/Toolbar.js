@@ -47,7 +47,7 @@ const LeftComponent = props => {
     if (!props.onPress) return null
     return (
         <Touchable onPress={props.onPress} style={[styles.leftComponent]}>
-            <Icon name={'chevron-left'} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
+            <Icon source={{ name: 'chevron-left' }} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
         </Touchable>
     )
 }
@@ -63,7 +63,7 @@ const RightComponent = props => {
     if (!props.onRightPress) return null
     return (
         <Touchable onPress={props.onRightPress} style={[styles.rightComponent]}>
-            <Icon source={props.rightSource} name={props.rightIcon} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
+            <Icon source={props.rightSource} color={getThemeValue(`color-toolbar-icon-${props.barStyle}`, props.theme)} size={28} />
         </Touchable>
     )
 }

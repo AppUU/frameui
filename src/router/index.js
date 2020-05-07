@@ -2,6 +2,7 @@ const router = {
     'Main': require('../'),
     'ViewPage': require('../pages/ViewPage'),
     'TextPage': require('../pages/TextPage'),
+    'TextInputPage': require('../pages/TextInputPage'),
     'ButtonPage': require('../pages/ButtonPage'),
     'TouchablePage': require('../pages/TouchablePage'),
     'IconPage': require('../pages/IconPage'),

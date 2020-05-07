@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Toolbar, Icon } from '../../frameui';
+import { View, Toolbar, Icon, Text } from '../../frameui';
 
 class IconPage extends Component {
     constructor(props) {
@@ -13,7 +13,16 @@ class IconPage extends Component {
         return (
             <View>
                 <Toolbar title={title} onPress={() => navigator.pop()} />
-                <Icon name={'feather'} color={'#6435c9'} size={20} />
+                <Icon source={{ name: 'feather' }} color={'#6435c9'} size={20} />
+                {/* <Icon color={'#6435c9'} size={20} /> */}
+                {/* <Icon color={'#6435c9'} size={20} /> */}
+                <Text
+                    textColor={'t1'}
+                    lines={0}
+                    text={`
+                    source={{name:'',source:'',svg:''}}
+                    `}
+                />
             </View>
         );
     }

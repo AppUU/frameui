@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import RootSiblings from 'react-native-root-siblings';
 import { Layout, Divider, Button, getRgbaColor, Text, themeColor } from "..";
 
-const { height } = Dimensions.get('window')
-var isAndroid = Platform.OS == 'android'
+const { height } = Dimensions.get('screen')
+var isAndroid = Platform.OS == '1'
 
 class Modal extends PureComponent {
 
@@ -15,7 +15,6 @@ class Modal extends PureComponent {
             visible: false, //给android式的modal进行使用的
             animationSlide: new Animated.Value(0),
             animationFade: new Animated.Value(0),
-            backgroundColor: 'rgba(0,0,0,.3)'
         };
         //ios也可以指定使用android的实现方式
         if (this.props.useAndroid) {
@@ -45,11 +44,11 @@ class Modal extends PureComponent {
 
     renderAndroid = () => {
         const { type } = this.props
-        const { backgroundColor } = this.state
         return (
             <RNModal {...this.props}
                 transparent={true}
                 visible={this.state.visible}
+                style={styles.container}
                 onRequestClose={() => {
                     if (this.props.onRequestClose) {
                         this.props.onRequestClose()
@@ -57,9 +56,7 @@ class Modal extends PureComponent {
                         this.hidden()
                     }
                 }}>
-                <View style={[type == 'alert' ? styles.alertroot : styles.popuproot, {
-                    backgroundColor: backgroundColor
-                }]}>
+                <View style={[type == 'alert' ? styles.alertroot : styles.popuproot]}>
                     {type == 'alert' && this.renderAlertContent()}
                     {type == 'popup' && this.renderPopupContent()}
                 </View>
@@ -69,12 +66,10 @@ class Modal extends PureComponent {
 
     renderIos = () => {
         const { type } = this.props
-        const { backgroundColor } = this.state
         return (
             <Animated.View style={[type == 'alert' ? styles.alertroot : styles.popuproot,
             {
                 opacity: this.state.animationFade,
-                backgroundColor: backgroundColor
             },
             {
                 transform: [{
@@ -252,6 +247,10 @@ class Modal extends PureComponent {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        width: '100%', height: '100%',
+        backgroundColor: 'rgba(0,0,0,.3)'
+    },
     alertroot: {
         position: 'absolute',
         left: 0,
@@ -260,6 +259,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,.3)'
     },
     popuproot: {
         position: 'absolute',
@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
         right: 0,
         bottom: 0,
         justifyContent: 'flex-end',
+        backgroundColor: 'rgba(0,0,0,.3)'
         // alignItems: 'flex-end'
     },
     alertcontainer: {
