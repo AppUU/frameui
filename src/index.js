@@ -24,6 +24,7 @@ class Main extends PureComponent {
                 { title: 'Toast', component: 'ToastPage' },
                 { title: 'ARTPage', component: 'ARTPage' },
                 { title: 'SVGPage', component: 'SVGPage' },
+                { title: 'Storage', component: 'StoragePage' },
             ]
         };
     }

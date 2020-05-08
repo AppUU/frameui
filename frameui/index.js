@@ -4,6 +4,7 @@ const { width, height } = Dimensions.get('window')
 
 exports.mapping = require('./styles/mapping.json')
 exports.themeColor = require('./styles/theme.json')
+import Storage from './utils/storage';
 // import moduleName from 'module';
 import { getThemeValue } from './styles/styles.service';
 import { getRgbaColor } from './styles/color.service';
@@ -37,5 +38,6 @@ export {
     Modal,
     getThemeValue, getRgbaColor,
     _ANDROID_, width, height,
-    mScaleSize, mScaleText, getStatusBarHeight
+    mScaleSize, mScaleText, getStatusBarHeight,
+    Storage
 }
