@@ -16,6 +16,7 @@
             "minHeight": 24,
             "fontSize": "fontSize-small",
             "fontWeight": "400",
+            "fontWeight-": "300",
             "borderRadius": 4,
             "borderWidth": 1,
             "marginHorizontal": 4,

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ScrollView } from 'react-native';
-import { View, Button, Toolbar, Item, List } from '../frameui';
+import { View, Text, Toolbar, Item, List } from '../frameui';
 
 class Main extends PureComponent {
     constructor(props) {
@@ -25,6 +25,7 @@ class Main extends PureComponent {
                 { title: 'ARTPage', component: 'ARTPage' },
                 { title: 'SVGPage', component: 'SVGPage' },
                 { title: 'Storage', component: 'StoragePage' },
+                { title: 'Animated', component: 'AnimatedPage' },
             ]
         };
     }
@@ -36,6 +37,8 @@ class Main extends PureComponent {
         return (
             <View>
                 <Toolbar title={'FRAGME-UI'} subtitle={'created by zjiaxin'} />
+                {/* <Text textColor={'info'} text={'纳税人识别号'} /> */}
+                <Text textColor={'primary'} text={'纳税人识别号'} />
                 <List>
                     {data.map(this.renderItem.bind(this))}
                 </List>

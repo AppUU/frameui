@@ -18,6 +18,7 @@ const router = {
     'ARTPage': require('../pages/ARTPage'),
     'SVGPage': require('../pages/SVGPage'),
     'StoragePage': require('../pages/StoragePage'),
+    'AnimatedPage': require('../pages/AnimatedPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }
