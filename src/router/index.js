@@ -19,6 +19,10 @@ const router = {
     'SVGPage': require('../pages/SVGPage'),
     'StoragePage': require('../pages/StoragePage'),
     'AnimatedPage': require('../pages/AnimatedPage'),
+    'ListViewPage': require('../pages/ListViewPage'),
+    'FlatListPage': require('../pages/FlatListPage'),
+    'SwipePage': require('../pages/SwipePage'),
+    'UltimateListPage': require('../pages/UltimateListPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

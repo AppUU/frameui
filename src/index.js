@@ -26,6 +26,10 @@ class Main extends PureComponent {
                 { title: 'SVGPage', component: 'SVGPage' },
                 { title: 'Storage', component: 'StoragePage' },
                 { title: 'Animated', component: 'AnimatedPage' },
+                { title: 'ListView', component: 'ListViewPage' },
+                { title: 'FlatList', component: 'FlatListPage' },
+                { title: 'UltimateList', component: 'UltimateListPage' },
+                { title: 'Swipe', component: 'SwipePage' },
             ]
         };
     }
@@ -38,7 +42,7 @@ class Main extends PureComponent {
             <View>
                 <Toolbar title={'FRAGME-UI'} subtitle={'created by zjiaxin'} />
                 {/* <Text textColor={'info'} text={'纳税人识别号'} /> */}
-                <Text textColor={'primary'} text={'纳税人识别号'} />
+                {/* <Text textColor={'primary'} text={'纳税人识别号'} /> */}
                 <List>
                     {data.map(this.renderItem.bind(this))}
                 </List>
