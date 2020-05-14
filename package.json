@@ -19,6 +19,7 @@
     "react-native-scrollable-tab-view": "^1.0.0",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^6.6.0",
+    "react-native-vrplayer": "^1.0.0",
     "react-navigation": "^3.0.0"
   },
   "devDependencies": {

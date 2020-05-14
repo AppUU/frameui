@@ -23,6 +23,7 @@ const router = {
     'FlatListPage': require('../pages/FlatListPage'),
     'SwipePage': require('../pages/SwipePage'),
     'UltimateListPage': require('../pages/UltimateListPage'),
+    'VRVideoPage': require('../pages/VRVideoPage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

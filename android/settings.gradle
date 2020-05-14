@@ -1,4 +1,6 @@
 rootProject.name = 'frameui'
+include ':react-native-vrplayer'
+project(':react-native-vrplayer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vrplayer/android')
 include ':react-native-svg'
 project(':react-native-svg').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-svg/android')
 include ':react-native-vector-icons'

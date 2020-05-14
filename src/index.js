@@ -29,6 +29,7 @@ class Main extends PureComponent {
                 { title: 'ListView', component: 'ListViewPage' },
                 { title: 'FlatList', component: 'FlatListPage' },
                 { title: 'UltimateList', component: 'UltimateListPage' },
+                { title: 'VRVideo', component: 'VRVideoPage' },
                 { title: 'Swipe', component: 'SwipePage' },
             ]
         };
