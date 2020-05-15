@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { VRVideoPlayer } from 'react-native-vrplayer';
+import { View, _ANDROID_ } from '../../frameui';
+import { VRFilterType, VRVideoPlayer } from 'react-native-vrplayer';
 
 class VRVideoPage extends Component {
     constructor(props) {
@@ -11,12 +11,13 @@ class VRVideoPage extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <VRVideoPlayer
-                    url={'http://allabc.jinshunkj.com/szsyj/in3.mp4'}
-                    paused={false}
-                    style={{ flex: 1 }}
-                />
+            <View>
+                {_ANDROID_ &&
+                    <VRVideoPlayer
+                        url={'http://allabc.jinshunkj.com/szsyj/in3.mp4'}
+                        paused={false}
+                        style={{ width: "100%", height: 250 }}
+                    />}
             </View>
         );
     }

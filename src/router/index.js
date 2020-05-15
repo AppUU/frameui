@@ -24,6 +24,7 @@ const router = {
     'SwipePage': require('../pages/SwipePage'),
     'UltimateListPage': require('../pages/UltimateListPage'),
     'VRVideoPage': require('../pages/VRVideoPage'),
+    'LottiePage': require('../pages/LottiePage'),
     'DimensPage': require('../pages/DimensPage'),
 
 }

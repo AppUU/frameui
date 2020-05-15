@@ -31,6 +31,7 @@ class Main extends PureComponent {
                 { title: 'UltimateList', component: 'UltimateListPage' },
                 { title: 'VRVideo', component: 'VRVideoPage' },
                 { title: 'Swipe', component: 'SwipePage' },
+                { title: 'Lottie', component: 'LottiePage' },
             ]
         };
     }

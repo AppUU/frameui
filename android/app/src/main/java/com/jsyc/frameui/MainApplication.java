@@ -3,6 +3,7 @@ package com.jsyc.frameui;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.lottie.LottiePackage;
 import com.zjiaxin.vrvideo.RNVRVideoPackage;
 import com.horcrux.svg.SvgPackage;
 import com.jsyc.frameui.dimensions.DimensionsPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new LottiePackage(),
             new RNVRVideoPackage(),
                     new SvgPackage(),
                     new VectorIconsPackage(),
